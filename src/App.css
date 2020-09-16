@@ -1,0 +1,61 @@
+/*
+.app-wrapper{
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 2fr 10fr 2fr;
+    grid-gap: 10px;
+    grid-template-areas:
+            "h h h"
+            "b c b";
+}
+.app-wrapper-content{
+    grid-area: c;
+    background-color: cornflowerblue;
+    grid-column: 2 / 3;
+    padding: 20px; !* отступы *!
+    !*    darkseagreen*!
+}
+
+.app-wrapper-background{
+    grid-area: b;
+    background-color: azure;
+}
+
+.app-wrapper-header{
+    grid-area: h;
+    background-color: #61dafb;
+}*/
+
+/*.wrapper {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 10px;
+    background-color: #fff;
+    color: #444;
+}*/
+
+/*.bg {
+    !* The image used *!
+    background-image: url("https://i.pinimg.com/originals/3b/8a/d2/3b8ad2c7b1be2caf24321c852103598a.jpg");
+
+    !* Set a specific height *!
+    height: 500px;
+
+    !* Create the parallax scrolling effect *!
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}*/
+
+.content {
+    display: grid;
+    grid-template-rows: 7% 93%;
+    grid-template-areas:
+        " h"
+        " m";
+}
+
+.main {
+    grid-area: m;
+}
