@@ -19,7 +19,7 @@ const NavBar = () => {
                 <li className={s.item}>
                     <NavLink to="/story" activeClassName={s.active}>Истории</NavLink>
                 </li>
-                <li className={s.item}>
+                <li className={s.item} style={{float:"right"}}>
                     <NavLink to="/random" activeClassName={s.active}>Рандом</NavLink>
                 </li>
             </ul>

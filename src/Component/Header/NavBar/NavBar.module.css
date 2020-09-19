@@ -1,5 +1,5 @@
 .hr{
-    border: 2px solid rgb(180,2,91);
+    border: 1px solid rgb(180,2,91);
     width: 70%;
 }
 
@@ -11,9 +11,12 @@
 
 .item a{
     color: #FFFFFF;
+    font-weight: bold;
+    font-size: 22px;
     text-decoration: none;
-    margin: 5px 15px;
+    margin: 5px 20px;
     float: left;
+
 }
 
 .item a.active{

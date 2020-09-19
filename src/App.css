@@ -58,4 +58,6 @@
 
 .main {
     grid-area: m;
+    margin-top: 4rem;
+    font-size: 14px;
 }

@@ -1,16 +1,17 @@
 .logo{
-    width: 70px;
+    width: 120px;
     margin: 0 0 0 15%;
 }
 
 header{
     grid-area: h;
-    height: 16%;
+    height: 22%;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
     background-color: #1D1E1F;
-
+    margin-top: 0;
+    padding-top: 65px;
 }
 
 .profile_logo{

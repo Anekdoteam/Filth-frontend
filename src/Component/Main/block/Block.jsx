@@ -2,9 +2,8 @@ import React from 'react';
 import s from './Block.module.css';
 
 const Block = (props) => {
-    console.log(Block);
     return (
-        <div className={s.block/*'app-wrapper-content'*/}>
+        <div className={s.block/*'app-wrapper-content'*/} style={props.style}>
             <h4>
                 {props.title}
             </h4>
