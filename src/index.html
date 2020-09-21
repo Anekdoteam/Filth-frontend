@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        header{
+            grid-area: h;
+            height: 22%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1D1E1F;
+            margin-top: 0;
+            padding-top: 65px;
+        }
+        .hr{
+            border: 1px solid rgb(180,2,91);
+            width: 70%;
+        }
+        .nav{
+            list-style-type: none;
+            margin: 0 20.5%;
+            padding: 0;
+        }
+
+        .item a{
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 22px;
+            text-decoration: none;
+            margin: 5px 20px;
+            float: left;
+
+        }
+        .block{
+            margin: 1rem auto;
+            padding: 1rem;
+            background-color: #1D1E1F;
+            color: #eee;
+            border-radius: 15px;
+            font-size: 130%;
+            width: 45%;
+            box-shadow: 0 0 20px #000;
+        }
+
+        h3 {
+            color: #B4025B;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-rows: 8% 92%;
+            grid-template-areas:
+        " h"
+        " m";
+        }
+
+        .main {
+            grid-area: m;
+            margin-top: 6rem;
+            font-size: 14px;
+        }
+        body{
+            background-color: #1D1E1F;
+            margin-top: 65px;
+            font-family: 'Nunito', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="content">
+        <header>
+            <img alt="logo" src="https://i.pinimg.com/originals/3f/3d/d9/3f3dd9219f7bb1c9617cf4f154b70383.jpg" style="width: 100px; margin: 0 0 0 15%;">
+            <nav>
+                <hr class="hr">
+                <ul class="nav">
+                    <li class="item">
+                        <a href="#">Memes</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">Jokes</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">Pasta</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">Stories</a>
+                    </li>
+                    <li class="item" style="float: right">
+                        <a href="#">Random</a>
+                    </li>
+
+                </ul>
+            </nav>
+        </header>
+        <div class="main">
+
+            <div class="block">
+                <h3>
+                    Resume
+                </h3>
+                <p>
+                    <ol>
+                        <li>Nikolay Kunaev</li>
+                        <li>Email: HitoriSun@gmail.com | telegram</li>
+                        <li>I know basics of Java, JavaScript, C++. Now I'm learning new things about web-development because this seems interesting to me. Also I want to study how to make backend with Java. I want to become full stack web developer. I'm stress-resistant if I know my aim. I want to learn more!</li>
+                        <li>Java (Spring, Android), JavaScript (React), PHP, Git, Python (Django)</li>
+                        <li>Private repo, no examples</li>
+                        <li>AIS (Automated information system) for private clinic.</li>
+                        <li>A lot of courses from Coursera
+                            <ul>
+                                <li>Introduction to Discrete Mathematics for Computer Science Specialization</li>
+                                <li>Анализ данных Specialization</li>
+                                <li>Emerging Technologies: From Smartphones to IoT to Big Data Specialization</li>
+                                <li>Mathematics for Machine Learning Specialization</li>
+                                <li>Single Variable Calculus</li>
+                                <li>Mathematical Thinking in Computer Science</li>
+                                <li>Introduction to Logic</li>
+                                <li>Introduction to Graph Theory</li>
+                                <li>Number Theory and Cryptography</li>
+                            </ul>
+                        </li>
+                        <li>I have studied English for 11 years. I have B1 - B2 level of English. Now I'm learning some professional words for IT sphere.</li>
+                    </ol>
+                </p>
+            </div>
+            <div class="block">
+                <h3>
+                    Name
+                </h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur interdum metus et purus volutpat, ac imperdiet libero facilisis. Fusce ornare orci ac risus placerat lobortis. Aliquam euismod ante vel aliquet porta. In tincidunt, neque a tincidunt ultricies, lacus ipsum convallis felis, nec blandit magna erat at velit. Nulla sagittis purus euismod ornare hendrerit. Sed pretium augue at quam aliquam molestie. Pellentesque pretium neque ante, sollicitudin fringilla ante pretium ullamcorper. Nulla sed felis justo. Mauris mollis eu dui a viverra. Nunc faucibus eget neque at accumsan. Sed tristique neque sit amet nisi porta, iaculis pretium metus auctor. Quisque dapibus tortor at malesuada blandit. Duis maximus, augue et vestibulum convallis, neque risus condimentum nisl, at interdum mi neque mattis libero. Nam dapibus rutrum mauris, at viverra dolor feugiat non. Vivamus ac aliquam sapien.
+                </p>
+            </div>
+            <div class="block">
+                <h3>
+                    Name
+                </h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur interdum metus et purus volutpat, ac imperdiet libero facilisis. Fusce ornare orci ac risus placerat lobortis. Aliquam euismod ante vel aliquet porta. In tincidunt, neque a tincidunt ultricies, lacus ipsum convallis felis, nec blandit magna erat at velit. Nulla sagittis purus euismod ornare hendrerit. Sed pretium augue at quam aliquam molestie. Pellentesque pretium neque ante, sollicitudin fringilla ante pretium ullamcorper. Nulla sed felis justo. Mauris mollis eu dui a viverra. Nunc faucibus eget neque at accumsan. Sed tristique neque sit amet nisi porta, iaculis pretium metus auctor. Quisque dapibus tortor at malesuada blandit. Duis maximus, augue et vestibulum convallis, neque risus condimentum nisl, at interdum mi neque mattis libero. Nam dapibus rutrum mauris, at viverra dolor feugiat non. Vivamus ac aliquam sapien.
+                </p>
+            </div>
+            <div class="block">
+                <h3>
+                    Name
+                </h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur interdum metus et purus volutpat, ac imperdiet libero facilisis. Fusce ornare orci ac risus placerat lobortis. Aliquam euismod ante vel aliquet porta. In tincidunt, neque a tincidunt ultricies, lacus ipsum convallis felis, nec blandit magna erat at velit. Nulla sagittis purus euismod ornare hendrerit. Sed pretium augue at quam aliquam molestie. Pellentesque pretium neque ante, sollicitudin fringilla ante pretium ullamcorper. Nulla sed felis justo. Mauris mollis eu dui a viverra. Nunc faucibus eget neque at accumsan. Sed tristique neque sit amet nisi porta, iaculis pretium metus auctor. Quisque dapibus tortor at malesuada blandit. Duis maximus, augue et vestibulum convallis, neque risus condimentum nisl, at interdum mi neque mattis libero. Nam dapibus rutrum mauris, at viverra dolor feugiat non. Vivamus ac aliquam sapien.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
