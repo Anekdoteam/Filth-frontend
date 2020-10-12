@@ -1,6 +1,6 @@
-.block{
+.block {
     margin: 1rem auto;
-    padding: 1rem;
+    /*padding: 1rem;*/
     /*background-color: #EEEEEE;*/
     background-color: #1D1E1F;
     color: #eee;
@@ -11,10 +11,53 @@
     font-size: 130%;
     width: 45%;
     box-shadow: 0 0 20px #000;
+    overflow: hidden;
 }
 
-h4 {
+.block h4 {
     color: #B4025B;
     margin-top: 20px;
     margin-bottom: 5px;
+    float: left;
+}
+
+.btn {
+    padding: 1rem;
+    margin: 0;
+    background-color: #1d1e1f;
+    border: 0px;
+    color: #eee;
+    border-radius: 15px;
+    /*font-size: 130%;*/
+    /*width: 45%;*/
+    /*box-shadow: 0 0 20px #000;*/
+    overflow: hidden;
+}
+
+.block p{
+    float: left;
+    text-align: left;
+}
+
+/*.modal{
+    margin: 1rem auto;
+    background-color: #1D1E1F;
+    color: #eee;
+    border-radius: 15px;
+    font-size: 130%;
+    width: 45%;
+    box-shadow: 0 0 20px #000;
+    overflow: hidden;
+}*/
+
+.modal h4{
+    color: #B4025B;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    float: left;
+}
+
+.modal p{
+    float: left;
+    text-align: left;
 }
