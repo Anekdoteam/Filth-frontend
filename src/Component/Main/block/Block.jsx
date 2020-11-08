@@ -1,8 +1,12 @@
 import React from 'react';
 import s from './Block.module.css';
 import ReactDOM from "react-dom";
+import logo from "../../Header/dark.svg";
+import prof from "../../Header/Abstract_user_icon.svg";
 
 const modalRoot = document.getElementById('modal-root');
+
+let tagList = ["#sometag1", "#sometag2", "#sometag3", "#sometag4", "#sometag5"];
 
 class Modal extends React.Component {
     constructor(props) {
@@ -33,6 +37,7 @@ class Block extends React.Component {
 
         this.handleShow = this.handleShow.bind(this);
         this.handleHide = this.handleHide.bind(this);
+
     }
 
     handleShow() {
@@ -55,6 +60,30 @@ class Block extends React.Component {
                             <p>
                                 {this.props.content}
                             </p>
+                            <div className={s.tag_line}>
+                                {tagList.map(key => {
+                                    return (
+                                        <span key={key}>
+                                            {key}
+                                        </span>
+                                    )
+                                })}
+                            </div>
+                            <div>
+                                <div className={s.user_info}>
+                                    <img
+                                         src={prof}
+                                         className={s.profile_logo}
+                                         alt='profile'
+                                    />
+                                    <div className={s.user_name}>
+                                        {/*this.props.author*/}
+                                        <p>
+                                            Temp user name
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         {/*<div className="modal_text">
                             With a portal, we can render content into a different

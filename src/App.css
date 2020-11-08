@@ -48,12 +48,8 @@
     background-size: cover;
 }*/
 
-.content {
-
-}
-
 .main {
-    margin-top: 20%;
+    margin-top: 38vh;
 }
 
 .modal_text{
@@ -62,25 +58,19 @@
 
 #modal-root {
     position: relative;
-    z-index: 10000;
+    /*z-index: 10000;*/
 }
 
 .fullBtn{
-    width: 100%;
-    height: 100%;
 }
+
 .fullBtn:hover{
     background-color: black;
 }
 
-.app {
-    height: 10em;
-    width: 10em;
-    background: lightblue;
-    overflow: hidden;
-}
-
 .modal {
+    backdrop-filter: blur(10px);
+    z-index: 30;
     background-color: rgba(0,0,0,0.5);
     position: fixed;
     height: 100%;
@@ -93,13 +83,13 @@
 }
 
 .modal_text{
-    margin: 1rem auto;
+    margin: 14vh auto 0;
     height: 70%;
     background-color: #1D1E1F;
     color: #eee;
     border-radius: 15px;
     font-size: 130%;
-    width: 80%;
+    width: 60%;
     box-shadow: 0 0 20px #000;
     overflow: hidden;
 }
@@ -108,16 +98,18 @@
     padding-top: 20px;
     color: #B4025B;
     float: left;
-    margin: 20px 90% 5px 50px;
-    font-size: 150%;
+    margin: 20px 0 5px 70px;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-.modal_text p{
+.modal_text p {
     float: left;
     text-align: left;
     font-size: 150%;
-    font-family: 'Nunito', sans-serif;
-    text-indent: 30px;
-    padding-left: 20px;
+    font-family: "Avenir Next", sans-serif;
+    text-indent: 0;
+    padding-left: 70px;
     padding-right: 20px;
 }
