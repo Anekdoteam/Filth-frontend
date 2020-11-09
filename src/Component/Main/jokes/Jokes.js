@@ -4,7 +4,8 @@ import Block from "./Block";
 import ReactDOM from "react-dom";
 import axios from "axios";
 
-const PAGE_SIZE=100; //const for now, probably changable by user or something
+const PAGE_SIZE=100; // const for now, probably changable by user or something
+const override_auth=true; // debug usage only
 
 class Jokes extends Component {
 	constructor(props){

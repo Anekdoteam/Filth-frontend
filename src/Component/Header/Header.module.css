@@ -17,7 +17,13 @@ header {
 
 .profile_logo {
     width: 68px;
-    margin-left: 45.2vw;
+    margin-bottom: 1vw;
+    /*float: right;*/
+    /*margin: 0 15% 0 0;*/
+}
+
+.add_logo {
+    width: 68px;
     margin-bottom: 1vw;
     /*float: right;*/
     /*margin: 0 15% 0 0;*/
@@ -72,6 +78,20 @@ header {
     padding: 10px 5px 10px 25px;
     width: 80%;
 }
+
+
+.dashboard button {
+   background-color: transparent;
+   border-color: transparent;
+   display: inline-block;
+   width: 68px;
+   /*margin-left: 45.2vw;*/
+   float: right;
+ }
+ .dashboard {
+   width: 1 vw;
+ }
+
 
 input[type=text], input[type=password] {
     color: #eee;
