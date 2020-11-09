@@ -1,20 +1,98 @@
-.logo{
-    width: 70px;
-    margin: 0 0 0 15%;
-}
-
-header{
-    grid-area: h;
-    height: 16%;
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0; /* Position the navbar at the top of the page */
-    width: 100%; /* Full width */
+header {
+    height: 22vh;
+    position: fixed;
+    top: 0;
+    margin: 0 19.5vw;
+    width: 57.2vw;
     background-color: #1D1E1F;
-
+    /*background-color: fuchsia;*/
+    padding-top: 9vh;
 }
 
-.profile_logo{
-    width: 50px;
-    float: right;
-    margin: 0 15% 0 0;
+.logo {
+    /*float: left;*/
+    width: 140px;
+    padding-bottom: 0.5vh;
 }
+
+.profile_logo {
+    width: 68px;
+    margin-left: 45.2vw;
+    margin-bottom: 1vw;
+    /*float: right;*/
+    /*margin: 0 15% 0 0;*/
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+}
+
+.modal_text {
+    margin: 20% auto;
+    height: 50%;
+    background-color: #1D1E1F;
+    color: #eee;
+    border-radius: 15px;
+    font-size: 130%;
+    width: 44.5%;
+    box-shadow: 0 0 20px #000;
+    overflow: hidden;
+}
+
+
+.login {
+}
+
+.head {
+    text-align: left;
+    margin: 6% 0 0 10%;
+    color: #B4025B;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.main_form {
+    margin: 5% auto;
+}
+
+.in {
+    background-color: #1D1E1F;
+    border-radius: 10px;
+    border: 0px solid;
+    box-shadow: 0 0 10px #000;
+    margin: 7px 0;
+    padding: 10px 5px 10px 25px;
+    width: 80%;
+}
+
+input[type=text], input[type=password] {
+    color: #eee;
+    font-size: 16px;
+}
+
+input[type=text]::placeholder, input[type=password]::placeholder {
+    color: #3D3D3D;
+}
+
+input[type=submit] {
+    letter-spacing: 2px;
+    margin-top: 7vh;
+    width: 84.5%;
+    /*background-color: #B4025B;*/
+    background-color: #C20262;
+    color: #CCC;
+    padding: 1.5vh;
+    border-radius: 10px;
+    border: 0 solid;
+    box-shadow: 0 0 20px #000;
+    font-size: 17px;
+}
+

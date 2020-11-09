@@ -1,23 +1,29 @@
-.hr{
-    border: 2px solid rgb(180,2,91);
-    width: 70%;
+.hr {
+    border: 3px solid rgb(180, 2, 91);
 }
 
-.navbar{
+.navbar {
     list-style-type: none;
-    margin: 0 20.5%;
     padding: 0;
 }
 
-.item a{
+.left {
+    margin-left: 2vw;
+}
+
+.item a {
     color: #FFFFFF;
+    font-weight: bold;
+    font-size: 28px;
     text-decoration: none;
-    margin: 5px 15px;
+    margin: 15px 28px;
     float: left;
 }
 
-.item a.active{
+.item a.active {
     color: #B4025B;
 }
 
-
+.rand {
+    margin-right: 1.5vw;
+}

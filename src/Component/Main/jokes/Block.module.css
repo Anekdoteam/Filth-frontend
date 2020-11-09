@@ -1,0 +1,105 @@
+.block {
+    margin: 1rem auto;
+    background-color: #1D1E1F;
+    color: #eee;
+    border-radius: 15px;
+    font-size: 2em;
+    width: 41%;
+    box-shadow: 0 0 20px #000;
+    overflow: hidden;
+}
+
+.btn h4 {
+    color: #B4025B;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    float: left;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.btn {
+    user-select: none;
+    user-focus: none;
+    outline: none;
+    padding: 1rem;
+    margin: 0 0 0 10px;
+    background-color: #1d1e1f;
+    border: 0px;
+    color: #eee;
+    border-radius: 15px;
+    font-size: 0.5em;
+    overflow: hidden;
+}
+
+.block p {
+    float: left;
+    text-align: left;
+    white-space: pre-wrap;
+}
+
+/*.modal{
+    margin: 1rem auto;
+    background-color: #1D1E1F;
+    color: #eee;
+    border-radius: 15px;
+    font-size: 130%;
+    width: 45%;
+    box-shadow: 0 0 20px #000;
+    overflow: hidden;
+}*/
+
+.modal h4 {
+    color: #B4025B;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    /*float: left;*/
+    margin-right: 10px;
+}
+
+.modal p {
+    text-align: left;
+}
+
+.user_info {
+    /*height: 70px;*/
+    display: inline;
+    float: left;
+    margin-left: 70px;
+    margin-top: 30px;
+}
+
+.profile_logo {
+    float: left;
+    display: inline;
+    width: 70px;
+}
+
+.user_name {
+    display: inline;
+
+}
+
+.user_name p{
+    font-size: 30px;
+    text-align: center;
+    display: inline;
+    margin: 0;
+    padding: 16.5px 100px;
+}
+
+.tag_line {
+    display: inline;
+    float: left;
+    font-size: 25px;
+}
+
+.tag_line span:nth-child(1){
+    margin-left: 70px;
+}
+
+.tag_line span {
+    margin: 10px 0;
+    padding-left: 0px;
+    padding-right: 20px;
+}

@@ -48,14 +48,68 @@
     background-size: cover;
 }*/
 
-.content {
-    display: grid;
-    grid-template-rows: 7% 93%;
-    grid-template-areas:
-        " h"
-        " m";
+.main {
+    margin-top: 38vh;
 }
 
-.main {
-    grid-area: m;
+.modal_text{
+    color: whitesmoke;
+}
+
+#modal-root {
+    position: relative;
+    /*z-index: 10000;*/
+}
+
+.fullBtn{
+}
+
+.fullBtn:hover{
+    background-color: black;
+}
+
+.modal {
+    backdrop-filter: blur(10px);
+    z-index: 30;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_text{
+    margin: 14vh auto 0;
+    height: 70%;
+    background-color: #1D1E1F;
+    color: #eee;
+    border-radius: 15px;
+    font-size: 130%;
+    width: 60%;
+    box-shadow: 0 0 20px #000;
+    overflow: hidden;
+}
+
+.modal_text h4{
+    padding-top: 20px;
+    color: #B4025B;
+    float: left;
+    margin: 20px 0 5px 70px;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.modal_text p {
+    float: left;
+    text-align: left;
+    font-size: 150%;
+    font-family: "Avenir Next", sans-serif;
+    text-indent: 0;
+    padding-left: 70px;
+    padding-right: 20px;
 }
