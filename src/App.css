@@ -48,6 +48,10 @@
     background-size: cover;
 }*/
 
+.content {
+    display: grid;
+}
+
 .main {
     margin-top: 38vh;
 }
@@ -97,15 +101,16 @@
 .modal_text h4{
     padding-top: 20px;
     color: #B4025B;
-    float: left;
     margin: 20px 0 5px 70px;
     font-size: 34px;
     font-weight: bold;
     letter-spacing: 2px;
+    text-align: left;
+    /*float: left;*/
 }
 
 .modal_text p {
-    float: left;
+    /*float: left;*/
     text-align: left;
     font-size: 150%;
     font-family: "Avenir Next", sans-serif;

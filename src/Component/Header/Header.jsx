@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './Header.module.css';
-import profIcon from './Abstract_user_icon.svg';
-import addIcon from './add_icon.svg';
+import prof from './Abstract_user_icon.svg';
 import logo from './dark.svg';
+import addIcon from './add_icon.svg';
 import NavBar from "./NavBar/NavBar";
 import {NavLink} from "react-router-dom";
 import ReactDOM from "react-dom";
@@ -51,7 +51,7 @@ class Header extends React.Component {
     handleHideLogin() {
         this.setState({showModalLogin: false});
     }
-    
+
     handleShowAdd() {
         this.setState({showModalAdd: true});
     }
@@ -80,7 +80,7 @@ class Header extends React.Component {
                                         <input type={"password"} name={"password"} placeholder={"Пароль"} className={s.in}/>
                                     </div>
                                     <div>
-                                        <input type={"submit"} value={"Войти"} onClick={this.handleHideLogin}/>
+                                        <input type={"submit"} value={"Войти"} onClick={this.handleHide}/>
                                     </div>
                                 </div>
 
@@ -94,52 +94,58 @@ class Header extends React.Component {
                 </button>
             </Modal>
         ) : this.state.showModalAdd ? (
-            // TODO: this
-            <Modal>
-                <button className={s.fullBtn}>
-                    <div className={s.modal}>
-                        <div className={s.modal_text}>
-                             <form action={"http://localhost:3001/addJoke/"} method={"get"} className={s.login}>
-                                <div className={s.head}>
-                                    Вход
-                                </div>
-                                <div className={s.main_form}>
-                                    <div>
-                                        <input type={"text"} name={"username"} placeholder={"Логин"} className={s.in}/>
-                                    </div>
-                                    <div>
-                                        <input type={"password"} name={"password"} placeholder={"Пароль"} className={s.in}/>
-                                    </div>
-                                    <div>
-                                        <input type={"submit"} value={"Войти"} onClick={this.handleHideLogin}/>
-                                    </div>
-                                </div>
+          // TODO: this
+          <Modal>
+              <button className={s.fullBtn}>
+                  <div className={s.modal}>
+                      <div className={s.modal_text}>
+                          <form action={"http://localhost:3001/addJoke/"} method={"get"} className={s.login}>
+                              <div className={s.head}>
+                                  Вход
+                              </div>
+                              <div className={s.main_form}>
+                                  <div>
+                                      <input type={"text"} name={"username"} placeholder={"Логин"} className={s.in}/>
+                                  </div>
+                                  <div>
+                                      <input type={"password"} name={"password"} placeholder={"Пароль"} className={s.in}/>
+                                  </div>
+                                  <div>
+                                      <input type={"submit"} value={"Войти"} onClick={this.handleHideLogin}/>
+                                  </div>
+                              </div>
 
-                            </form>
-                        </div>
-                    </div>
-                </button>
-            </Modal>
+                          </form>
+                      </div>
+                  </div>
+              </button>
+          </Modal>
         ) : null;
 
         return (
             <header>
-                    <div className={s.dashboard}>
-                        <NavLink to="/">
-                                <img
-                                    src={logo}
-                                    className={s.logo}
-                                    alt='logo'
-                                />
-                        </NavLink>                        
-                        <button>
-                            <img className={s.profile_logo} src={profIcon} alt="profile" onClick={this.handleShowLogin} />
-                        </button>
+                <div className={s.dashboard}>
+                    <NavLink to="/">
+                        <img
+                          src={logo}
+                          className={s.logo}
+                          alt='logo'
+                        />
+                    </NavLink>
+                    <div/>
+                    <div>
                         <button>
                             <img className={s.add_logo} src={addIcon} alt="add" onClick={this.handleShowAdd} />
                         </button>
-                        
                     </div>
+                    <div>
+                        <img onClick={this.handleShowLogin}
+                             src={prof}
+                             className={s.profile_logo}
+                             alt='profile'
+                        />
+                    </div>
+                </div>
                 <NavBar/>
                 {modal}
             </header>

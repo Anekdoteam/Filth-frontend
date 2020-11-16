@@ -26,4 +26,20 @@
 
 .rand {
     margin-right: 1.5vw;
+    float: right;
 }
+
+@media (max-width: 1600px) {
+    .item a {
+        font-size: 20px;
+        margin: 15px 15px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .item a {
+        font-size: 20px;
+        margin: 15px 5px;
+    }
+}
+

@@ -13,9 +13,12 @@
     color: #B4025B;
     margin-top: 30px;
     margin-bottom: 0px;
-    float: left;
+    text-align: left;
     font-size: 22px;
     font-weight: bold;
+}
+
+.btn_text {
 }
 
 .btn {
@@ -24,8 +27,9 @@
     outline: none;
     padding: 1rem;
     margin: 0 0 0 10px;
+    width: 100%;
     background-color: #1d1e1f;
-    border: 0px;
+    border: none;
     color: #eee;
     border-radius: 15px;
     font-size: 0.5em;
@@ -33,12 +37,12 @@
 }
 
 .block p {
-    float: left;
+    /*float: left;*/
     text-align: left;
     white-space: pre-wrap;
 }
 
-/*.modal{
+.modal{
     margin: 1rem auto;
     background-color: #1D1E1F;
     color: #eee;
@@ -47,8 +51,7 @@
     width: 45%;
     box-shadow: 0 0 20px #000;
     overflow: hidden;
-}*/
-
+}
 .modal h4 {
     color: #B4025B;
     margin-top: 20px;
@@ -91,7 +94,7 @@
 .tag_line {
     display: inline;
     float: left;
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .tag_line span:nth-child(1){

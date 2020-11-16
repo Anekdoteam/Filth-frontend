@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route} from "react-router-dom";
 import Block from "./Block";
-import ReactDOM from "react-dom";
 import axios from "axios";
 
 const PAGE_SIZE=100; // const for now, probably changable by user or something

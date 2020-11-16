@@ -57,6 +57,8 @@ class Block extends React.Component {
                             <h4>
                                 {this.props.title}
                             </h4>
+                            <br/>
+                            <br/>
                             <p>
                                 {this.props.content}
                             </p>
@@ -97,12 +99,15 @@ class Block extends React.Component {
         return (
             <div className={s.block/*'app-wrapper-content'*/} style={this.props.style}>
                 <button className={s.btn} onClick={this.handleShow}>
-                    <h4>
-                        {this.props.title}
-                    </h4>
-                    <p>
-                        {this.props.content}
-                    </p>
+                    <div className={s.btn_text}>
+                        <h4>
+                            {this.props.title}
+                        </h4>
+                        <br/>
+                        <p>
+                            {this.props.content}
+                        </p>
+                    </div>
                 </button>
                 {modal}
             </div>
