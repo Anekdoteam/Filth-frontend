@@ -9,6 +9,7 @@ import {NavLink} from "react-router-dom";
 import ReactDOM from "react-dom";
 import Like from "../../assets/filth-like-icon.svg";
 import search from "../../assets/filth-search.svg";
+import axios from "axios";
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -40,12 +41,30 @@ class Header extends React.Component {
         super(props);
         this.state = {showModalLogin: false};
         this.state = {showModalAdd: false};
-
+        this.state = {apiResponse: {success: false, error: undefined}};
+        this.state = {jokeTitle: ""};
+        this.state = {jokeTags: []};
+        this.state = {jokeContent: ""};
+        
+        
         this.handleShowLogin = this.handleShowLogin.bind(this);
         this.handleHideLogin = this.handleHideLogin.bind(this);
         this.handleShowAdd = this.handleShowAdd.bind(this);
         this.handleHideAdd = this.handleHideAdd.bind(this);
+        
     }
+    
+    addJoke(jokeName, jokeTags, jokeContent) {
+        
+        axios({
+          method: 'post',
+          url: 'http://localhost:3001/jokes/addJoke',
+          data: {name: jokeName, tags: jokeTags, content: jokeContent},
+          maxRedirects: 1
+        }).then(response => {
+            this.setState({apiResponse: response.data});
+          });
+  }
 
     handleShowLogin() {
         this.setState({showModalLogin: true});
@@ -61,6 +80,12 @@ class Header extends React.Component {
 
     handleHideAdd() {
         this.setState({showModalAdd: false});
+    }
+    
+    handleAddJoke(name, tags, content) {
+        this.addJoke(name, tags, content);
+        /*Todo: success/failure message*/
+        /*Todo: probably should redirect to different pages when categories are in place; currently is bugged and redirects to backend?*/
     }
 
     render() {
@@ -103,24 +128,25 @@ class Header extends React.Component {
                 <button>
                     <div className={add_s.modal}>
                         <div className={add_s.modal_text}>
-                            <form action={"http://localhost:3001/addJoke/"} method={"get"} className={add_s.login}>
+                            <form action={"http://localhost:3001/addJoke/"} method={"post"} className={add_s.login}>
                                 <div className={add_s.head}>
                                     Добавить анекдот
                                 </div>
                                 <div className={add_s.main_form}>
                                     <div>
-                                        <input type={"text"} name={"title"} placeholder={"Название"} className={add_s.inline}/>
+                                        <input type={"text"} name={"title"} placeholder={"Название"} className={add_s.inline} onChange={ (event)=> {this.state.jokeTitle = event.target.value}}/>
                                     </div>
                                     <div>
-                                        <input type={"text"} name={"tags"} placeholder={"Теги"}
-                                               className={add_s.inline}/>
+                                    {/*TODO: tags should be requested from backend (/jokes/getTags/???), then displayed as choices, also "new" should be a choice*/}
+                                        <input type={"text"} name={"tags"} placeholder={"Теги"} className={add_s.inline}  onChange={ (event)=> {this.state.jokeTags = event.target.value}}/>
                                     </div>
                                     <div>
-                                        <textarea name={"content"} placeholder={"Анекдот"}
-                                               className={`${add_s.inline} ${add_s.content}`} />
+                                        <textarea type={"text"} name={"content"} placeholder={"Анекдот"} className={`${add_s.inline} ${add_s.content}`}  onChange={ (event)=> {this.state.jokeContent = event.target.value}}/>
                                     </div>
                                     <div>
-                                        <input type={"submit"} name={"send"} value={"Опубликовать"} onClick={this.handleHideAdd}/>
+                                        <input type={"submit"} name={"send"} value={"Опубликовать"} onClick={() => {this.handleAddJoke(this.state.jokeTitle,
+                                                                                                                                       this.state.jokeTags,
+                                                                                                                                       this.state.jokeContent)}}/>
                                     </div>
                                 </div>
                             </form>
