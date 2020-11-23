@@ -11,14 +11,11 @@
 
 .btn h4 {
     color: #B4025B;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-bottom: 0px;
     text-align: left;
     font-size: 22px;
     font-weight: bold;
-}
-
-.btn_text {
 }
 
 .btn {
@@ -37,9 +34,9 @@
 }
 
 .block p {
-    /*float: left;*/
-    text-align: left;
-    white-space: pre-wrap;
+    text-align: justify;
+    padding-right: 15px;
+    /*white-space: pre-wrap;*/
 }
 
 .modal{

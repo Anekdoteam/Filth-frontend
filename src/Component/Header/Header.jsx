@@ -1,11 +1,13 @@
 import React from 'react';
 import s from './Header.module.css';
-import prof from './Abstract_user_icon.svg';
-import logo from './dark.svg';
-import addIcon from './add_icon.svg';
+import prof from '../../assets/unauth_user_icon.svg';
+import logo from '../../assets/dark.svg';
+import plusIcon from '../../assets/plus_icon.svg';
 import NavBar from "./NavBar/NavBar";
 import {NavLink} from "react-router-dom";
 import ReactDOM from "react-dom";
+import Like from "../../assets/filth-like-icon.svg";
+import search from "../../assets/filth-search.svg";
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -77,7 +79,8 @@ class Header extends React.Component {
                                     </div>
                                     <div>
                                         {/*<label>Password</label>*/}
-                                        <input type={"password"} name={"password"} placeholder={"Пароль"} className={s.in}/>
+                                        <input type={"password"} name={"password"} placeholder={"Пароль"}
+                                               className={s.in}/>
                                     </div>
                                     <div>
                                         <input type={"submit"} value={"Войти"} onClick={this.handleHide}/>
@@ -94,32 +97,33 @@ class Header extends React.Component {
                 </button>
             </Modal>
         ) : this.state.showModalAdd ? (
-          // TODO: this
-          <Modal>
-              <button className={s.fullBtn}>
-                  <div className={s.modal}>
-                      <div className={s.modal_text}>
-                          <form action={"http://localhost:3001/addJoke/"} method={"get"} className={s.login}>
-                              <div className={s.head}>
-                                  Вход
-                              </div>
-                              <div className={s.main_form}>
-                                  <div>
-                                      <input type={"text"} name={"username"} placeholder={"Логин"} className={s.in}/>
-                                  </div>
-                                  <div>
-                                      <input type={"password"} name={"password"} placeholder={"Пароль"} className={s.in}/>
-                                  </div>
-                                  <div>
-                                      <input type={"submit"} value={"Войти"} onClick={this.handleHideLogin}/>
-                                  </div>
-                              </div>
+            // TODO: this
+            <Modal>
+                <button className={s.fullBtn}>
+                    <div className={s.modal}>
+                        <div className={s.modal_text}>
+                            <form action={"http://localhost:3001/addJoke/"} method={"get"} className={s.login}>
+                                <div className={s.head}>
+                                    Вход
+                                </div>
+                                <div className={s.main_form}>
+                                    <div>
+                                        <input type={"text"} name={"username"} placeholder={"Логин"} className={s.in}/>
+                                    </div>
+                                    <div>
+                                        <input type={"password"} name={"password"} placeholder={"Пароль"}
+                                               className={s.in}/>
+                                    </div>
+                                    <div>
+                                        <input type={"submit"} value={"Войти"} onClick={this.handleHideLogin}/>
+                                    </div>
+                                </div>
 
-                          </form>
-                      </div>
-                  </div>
-              </button>
-          </Modal>
+                            </form>
+                        </div>
+                    </div>
+                </button>
+            </Modal>
         ) : null;
 
         return (
@@ -127,18 +131,24 @@ class Header extends React.Component {
                 <div className={s.dashboard}>
                     <NavLink to="/">
                         <img
-                          src={logo}
-                          className={s.logo}
-                          alt='logo'
+                            src={logo}
+                            className={s.logo}
+                            alt='logo'
                         />
                     </NavLink>
-                    <div/>
-                    <div>
-                        <button>
-                            <img className={s.add_logo} src={addIcon} alt="add" onClick={this.handleShowAdd} />
-                        </button>
+                    <div className={s.search_wrapper}>
+                        <div className={s.search_div}>
+                            <img className={s.search_icon} src={search} alt="search"/>
+                            <input className={s.search} type="text" placeholder="Поиск..."/>
+                        </div>
                     </div>
-                    <div>
+                    <div className={s.icon}>
+                        <img className={s.like_button} src={Like} alt="like" onClick={null}/>
+                    </div>
+                    <div className={s.icon}>
+                        <img className={s.add_logo} src={plusIcon} alt="add" onClick={this.handleShowAdd}/>
+                    </div>
+                    <div className={s.icon}>
                         <img onClick={this.handleShowLogin}
                              src={prof}
                              className={s.profile_logo}

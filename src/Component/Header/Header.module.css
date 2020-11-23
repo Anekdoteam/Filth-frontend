@@ -2,27 +2,73 @@ header {
     height: fit-content;
     position: fixed;
     top: 0;
-    margin: 0 19.5vw;
+    margin: 0 20.9vw;
     width: 57.2vw;
     background-color: #1D1E1F;
     /*background-color: fuchsia;*/
-    padding-top: 9vh;
+    padding-top: 4vh;
 }
 
 .dashboard {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 8fr 1fr 1fr 1fr;
 }
 
 .logo {
-    /*float: left;*/
-    width: 140px;
-    padding-bottom: 0.5vh;
+    padding-left: 5px;
+    width: 6.9vw;
+    padding-bottom: 2.2vh;
 }
 
-.profile_logo, .add_logo{
-    width: 68px;
-    float: right;
+.profile_logo, .add_logo, .like_button{
+    width: 56px;
+}
+
+.profile_logo {
+    margin: 37% 7% 0;
+}
+
+.add_logo {
+    margin: 50% 21% 0;
+    width: 36px;
+}
+
+.like_button {
+    margin: 50% 50% 0;
+    width: 16px;
+}
+
+.search_icon {
+
+    width: 25px;
+}
+
+.search_wrapper {
+    margin-left: 17%;
+    align-self: center;
+
+}
+
+.search {
+    width: 80%;
+    max-width: 80%;
+    height: 20pt;
+    padding: 10px;
+    background-color: #1D1E1F;
+    font-size: 20pt !important;
+    border: none;
+    margin: 5px 10px;
+}
+
+.search_div {
+    display: block;
+    height: fit-content;
+    width: 80%;
+    background-color: #1D1E1F;
+    box-shadow: 0 0 15px black;
+    padding: 0 20px;
+    margin: 0 auto;
+    border-radius: 15px;
 }
 
 .modal {

@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './Block.module.css';
 import ReactDOM from "react-dom";
-import logo from "../../Header/dark.svg";
-import prof from "../../Header/Abstract_user_icon.svg";
+import logo from "../../../assets/dark.svg";
+import prof from "../../../assets/unauth_user_icon.svg";
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -97,7 +97,7 @@ class Block extends React.Component {
         ) : null;
 
         return (
-            <div className={s.block/*'app-wrapper-content'*/} style={this.props.style}>
+            <div className={s.block} style={this.props.style}>
                 <button className={s.btn} onClick={this.handleShow}>
                     <div className={s.btn_text}>
                         <h4>
