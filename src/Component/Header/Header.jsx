@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Header.module.css';
+import add_s from './Add.module.css';
 import prof from '../../assets/unauth_user_icon.svg';
 import logo from '../../assets/dark.svg';
 import plusIcon from '../../assets/plus_icon.svg';
@@ -65,7 +66,7 @@ class Header extends React.Component {
     render() {
         const modal = this.state.showModalLogin ? (
             <Modal>
-                <button className={s.fullBtn}>
+                <button>
                     <div className={s.modal}>
                         <div className={s.modal_text}>
                             <form action={"/login"} method={"post"} className={s.login}>
@@ -99,26 +100,29 @@ class Header extends React.Component {
         ) : this.state.showModalAdd ? (
             // TODO: this
             <Modal>
-                <button className={s.fullBtn}>
-                    <div className={s.modal}>
-                        <div className={s.modal_text}>
-                            <form action={"http://localhost:3001/addJoke/"} method={"get"} className={s.login}>
-                                <div className={s.head}>
-                                    Вход
+                <button>
+                    <div className={add_s.modal}>
+                        <div className={add_s.modal_text}>
+                            <form action={"http://localhost:3001/addJoke/"} method={"get"} className={add_s.login}>
+                                <div className={add_s.head}>
+                                    Добавить анекдот
                                 </div>
-                                <div className={s.main_form}>
+                                <div className={add_s.main_form}>
                                     <div>
-                                        <input type={"text"} name={"username"} placeholder={"Логин"} className={s.in}/>
+                                        <input type={"text"} name={"title"} placeholder={"Название"} className={add_s.inline}/>
                                     </div>
                                     <div>
-                                        <input type={"password"} name={"password"} placeholder={"Пароль"}
-                                               className={s.in}/>
+                                        <input type={"text"} name={"tags"} placeholder={"Теги"}
+                                               className={add_s.inline}/>
                                     </div>
                                     <div>
-                                        <input type={"submit"} value={"Войти"} onClick={this.handleHideLogin}/>
+                                        <textarea name={"content"} placeholder={"Анекдот"}
+                                               className={`${add_s.inline} ${add_s.content}`} />
+                                    </div>
+                                    <div>
+                                        <input type={"submit"} name={"send"} value={"Опубликовать"} onClick={this.handleHideAdd}/>
                                     </div>
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -142,13 +146,13 @@ class Header extends React.Component {
                             <input className={s.search} type="text" placeholder="Поиск..."/>
                         </div>
                     </div>
-                    <div className={s.icon}>
+                    <div>
                         <img className={s.like_button} src={Like} alt="like" onClick={null}/>
                     </div>
-                    <div className={s.icon}>
+                    <div>
                         <img className={s.add_logo} src={plusIcon} alt="add" onClick={this.handleShowAdd}/>
                     </div>
-                    <div className={s.icon}>
+                    <div>
                         <img onClick={this.handleShowLogin}
                              src={prof}
                              className={s.profile_logo}

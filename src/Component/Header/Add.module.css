@@ -1,0 +1,56 @@
+.inline {
+    font-size: 20pt;
+    background-color: #1D1E1F;
+    border-radius: 10px;
+    border: 0 solid;
+    box-shadow: 0 0 10px #000;
+    margin: 15px 0;
+    padding: 10px 5px 10px 25px;
+    width: 80%;
+}
+
+.content {
+    font-size: 20pt;
+    height: 15vh;
+    resize: none;
+    padding: 10px 5px 10px 25px;
+    /*padding: 0 5px 0 25px;*/
+}
+
+.content::placeholder {
+    font-size: 14pt;
+    color: rgb(61, 61, 61);
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.modal_text {
+    margin: 10% auto;
+    height: 62%;
+    background-color: #1D1E1F;
+    color: #eee;
+    border-radius: 15px;
+    font-size: 130%;
+    width: 44.5%;
+    box-shadow: 0 0 20px #000;
+    overflow: hidden;
+}
+
+.head {
+    text-align: left;
+    margin: 6% 0 0 10%;
+    color: #B4025B;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.main_form {
+    margin: 5% auto;
+}
