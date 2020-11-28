@@ -39,12 +39,15 @@ class Header extends React.Component {
 
     constructor(props) {
         super(props);
+        // Probably not the best way to do this. TODO: research
         this.state = {showModalLogin: false};
         this.state = {showModalAdd: false};
         this.state = {apiResponse: {success: false, error: undefined}};
         this.state = {jokeTitle: ""};
         this.state = {jokeTags: []};
         this.state = {jokeContent: ""};
+        this.state = {username: ""};
+        this.state = {password: ""};
         
         
         this.handleShowLogin = this.handleShowLogin.bind(this);
@@ -84,8 +87,14 @@ class Header extends React.Component {
     
     handleAddJoke(name, tags, content) {
         this.addJoke(name, tags, content);
+        window.location = '/memes';
         /*Todo: success/failure message*/
         /*Todo: probably should redirect to different pages when categories are in place; currently is bugged and redirects to backend?*/
+    }
+    
+    handleLogin(username, password) {
+        this.login(username, password);
+        this.handleHideLogin();
     }
 
     render() {
@@ -94,22 +103,23 @@ class Header extends React.Component {
                 <button>
                     <div className={s.modal}>
                         <div className={s.modal_text}>
-                            <form action={"/login"} method={"post"} className={s.login}>
+                            <form action={"http://localhost:3001/login/"} method={"post"} className={s.login}>
                                 <div className={s.head}>
                                     Вход
                                 </div>
                                 <div className={s.main_form}>
                                     <div>
                                         {/*<label>Username</label>*/}
-                                        <input type={"text"} name={"username"} placeholder={"Логин"} className={s.in}/>
-                                    </div>
-                                    <div>
-                                        {/*<label>Password</label>*/}
-                                        <input type={"password"} name={"password"} placeholder={"Пароль"}
+                                        <input type={"text"} name={"username"} placeholder={"Логин"} onChange={ (event)=> {this.state.username = event.target.value}}
                                                className={s.in}/>
                                     </div>
                                     <div>
-                                        <input type={"submit"} value={"Войти"} onClick={this.handleHide}/>
+                                        {/*<label>Password</label>*/}
+                                        <input type={"password"} name={"password"} placeholder={"Пароль"} onChange={ (event)=> {this.state.password = event.target.value}}
+                                               className={s.in}/>
+                                    </div>
+                                    <div>
+                                        <input type={"submit"} value={"Войти"} onClick={() => this.handleLogin(this.state.username, this.state.password)}/>
                                     </div>
                                 </div>
 
@@ -128,7 +138,7 @@ class Header extends React.Component {
                 <button>
                     <div className={add_s.modal}>
                         <div className={add_s.modal_text}>
-                            <form action={"http://localhost:3001/addJoke/"} method={"post"} className={add_s.login}>
+                            <form className={add_s.login}>
                                 <div className={add_s.head}>
                                     Добавить анекдот
                                 </div>
