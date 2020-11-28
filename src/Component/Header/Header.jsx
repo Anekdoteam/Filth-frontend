@@ -48,6 +48,7 @@ class Header extends React.Component {
         this.state = {jokeContent: ""};
         this.state = {username: ""};
         this.state = {password: ""};
+        this.state = {user: document.cookie.sampleCookie};
         
         
         this.handleShowLogin = this.handleShowLogin.bind(this);
@@ -67,7 +68,20 @@ class Header extends React.Component {
         }).then(response => {
             this.setState({apiResponse: response.data});
           });
-  }
+    }
+    
+    login(username, password) {
+        
+        axios({
+          method: 'post',
+          url: 'http://localhost:3001/login',
+          data: {username: username, password: password},
+          withCredentials: true
+        }).then(response => {
+            this.setState({apiResponse: response.data});
+            // TODO: check success
+          });
+    }
 
     handleShowLogin() {
         this.setState({showModalLogin: true});
@@ -87,14 +101,14 @@ class Header extends React.Component {
     
     handleAddJoke(name, tags, content) {
         this.addJoke(name, tags, content);
-        window.location = '/memes';
-        /*Todo: success/failure message*/
-        /*Todo: probably should redirect to different pages when categories are in place; currently is bugged and redirects to backend?*/
+        //window.location = '/memes';
+        /*Todo: success/failure message (flash?)*/
+        /*Todo: probably should redirect to different pages when categories are in place*/
     }
     
     handleLogin(username, password) {
         this.login(username, password);
-        this.handleHideLogin();
+        // window.location = '/memes';
     }
 
     render() {
@@ -103,7 +117,7 @@ class Header extends React.Component {
                 <button>
                     <div className={s.modal}>
                         <div className={s.modal_text}>
-                            <form action={"http://localhost:3001/login/"} method={"post"} className={s.login}>
+                            <form className={s.login}>
                                 <div className={s.head}>
                                     Вход
                                 </div>
@@ -125,10 +139,6 @@ class Header extends React.Component {
 
                             </form>
                         </div>
-                        {/*<div className="modal_text">
-                            With a portal, we can render content into a different
-                            part of the DOM, as if it were any other React child.
-                        </div>*/}
                     </div>
                 </button>
             </Modal>
@@ -165,6 +175,12 @@ class Header extends React.Component {
                 </button>
             </Modal>
         ) : null;
+        
+        const addButton = this.state.user ? 
+                    <div>
+                        <img className={s.add_logo} src={plusIcon} alt="add" onClick={this.handleShowAdd}/>
+                    </div> : null
+        
 
         return (
             <header>
@@ -185,9 +201,7 @@ class Header extends React.Component {
                     <div>
                         <img className={s.like_button} src={Like} alt="like" onClick={null}/>
                     </div>
-                    <div>
-                        <img className={s.add_logo} src={plusIcon} alt="add" onClick={this.handleShowAdd}/>
-                    </div>
+                    {addButton}
                     <div>
                         <img onClick={this.handleShowLogin}
                              src={prof}
