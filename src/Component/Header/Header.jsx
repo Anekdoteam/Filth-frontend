@@ -1,17 +1,17 @@
 import React from 'react';
 import s from './Header.module.css';
-import add_s from './Add.module.css';
 import prof from '../../assets/unauth_user_icon.svg';
 import logo from '../../assets/dark.svg';
 import plusIcon from '../../assets/plus_icon.svg';
 import NavBar from "./NavBar/NavBar";
 import {NavLink} from "react-router-dom";
-import ReactDOM from "react-dom";
 import Like from "../../assets/filth-like-icon.svg";
 import search from "../../assets/filth-search.svg";
 import axios from "axios";
+import LoginModal from "./Modals/LoginModal";
+import AddModal from "./Modals/AddModal";
 
-const modalRoot = document.getElementById('modal-root');
+/*const modalRoot = document.getElementById('modal-root');
 
 class Modal extends React.Component {
     constructor(props) {
@@ -33,22 +33,23 @@ class Modal extends React.Component {
             this.el,
         );
     }
-}
+}*/
 
 class Header extends React.Component {
 
     constructor(props) {
         super(props);
-        // Probably not the best way to do this. TODO: research
-        this.state = {showModalLogin: false};
-        this.state = {showModalAdd: false};
-        this.state = {apiResponse: {success: false, error: undefined}};
-        this.state = {jokeTitle: ""};
-        this.state = {jokeTags: []};
-        this.state = {jokeContent: ""};
-        this.state = {username: ""};
-        this.state = {password: ""};
-        this.state = {user: document.cookie.sampleCookie};
+        this.state = {
+            showModalLogin: false,
+            showModalAdd: false,
+            apiResponse: {success: false, error: undefined},
+            jokeTitle: "",
+            jokeTags: [],
+            jokeContent: "",
+            username: "",
+            password: "",
+            user: document.cookie.sampleCookie,
+        };
         
         
         this.handleShowLogin = this.handleShowLogin.bind(this);
@@ -58,8 +59,8 @@ class Header extends React.Component {
         
     }
     
-    addJoke(jokeName, jokeTags, jokeContent) {
-        
+    addJoke = (jokeName, jokeTags, jokeContent) => {
+
         axios({
           method: 'post',
           url: 'http://localhost:3001/jokes/addJoke',
@@ -68,10 +69,10 @@ class Header extends React.Component {
         }).then(response => {
             this.setState({apiResponse: response.data});
           });
-    }
+    };
     
-    login(username, password) {
-        
+    login = (username, password) => {
+
         axios({
           method: 'post',
           url: 'http://localhost:3001/login',
@@ -81,106 +82,49 @@ class Header extends React.Component {
             this.setState({apiResponse: response.data});
             // TODO: check success
           });
-    }
+    };
 
-    handleShowLogin() {
+    handleShowLogin = () => {
         this.setState({showModalLogin: true});
-    }
+    };
 
-    handleHideLogin() {
+    handleHideLogin = () => {
         this.setState({showModalLogin: false});
-    }
+    };
 
-    handleShowAdd() {
+    handleShowAdd = () => {
         this.setState({showModalAdd: true});
-    }
+    };
 
-    handleHideAdd() {
+    handleHideAdd = () => {
         this.setState({showModalAdd: false});
-    }
+    };
     
-    handleAddJoke(name, tags, content) {
+    handleAddJoke = (name, tags, content) => {
         this.addJoke(name, tags, content);
         //window.location = '/memes';
         /*Todo: success/failure message (flash?)*/
         /*Todo: probably should redirect to different pages when categories are in place*/
-    }
+    };
     
-    handleLogin(username, password) {
+    handleLogin = (username, password) => {
         this.login(username, password);
         // window.location = '/memes';
-    }
+    };
 
-    render() {
+    render = () => {
         const modal = this.state.showModalLogin ? (
-            <Modal>
-                <button>
-                    <div className={s.modal}>
-                        <div className={s.modal_text}>
-                            <form className={s.login}>
-                                <div className={s.head}>
-                                    Вход
-                                </div>
-                                <div className={s.main_form}>
-                                    <div>
-                                        {/*<label>Username</label>*/}
-                                        <input type={"text"} name={"username"} placeholder={"Логин"} onChange={ (event)=> {this.state.username = event.target.value}}
-                                               className={s.in}/>
-                                    </div>
-                                    <div>
-                                        {/*<label>Password</label>*/}
-                                        <input type={"password"} name={"password"} placeholder={"Пароль"} onChange={ (event)=> {this.state.password = event.target.value}}
-                                               className={s.in}/>
-                                    </div>
-                                    <div>
-                                        <input type={"submit"} value={"Войти"} onClick={() => this.handleLogin(this.state.username, this.state.password)}/>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-                </button>
-            </Modal>
+            <LoginModal/>
         ) : this.state.showModalAdd ? (
             // TODO: this
-            <Modal>
-                <button>
-                    <div className={add_s.modal}>
-                        <div className={add_s.modal_text}>
-                            <form className={add_s.login}>
-                                <div className={add_s.head}>
-                                    Добавить анекдот
-                                </div>
-                                <div className={add_s.main_form}>
-                                    <div>
-                                        <input type={"text"} name={"title"} placeholder={"Название"} className={add_s.inline} onChange={ (event)=> {this.state.jokeTitle = event.target.value}}/>
-                                    </div>
-                                    <div>
-                                    {/*TODO: tags should be requested from backend (/jokes/getTags/???), then displayed as choices, also "new" should be a choice*/}
-                                        <input type={"text"} name={"tags"} placeholder={"Теги"} className={add_s.inline}  onChange={ (event)=> {this.state.jokeTags = event.target.value}}/>
-                                    </div>
-                                    <div>
-                                        <textarea type={"text"} name={"content"} placeholder={"Анекдот"} className={`${add_s.inline} ${add_s.content}`}  onChange={ (event)=> {this.state.jokeContent = event.target.value}}/>
-                                    </div>
-                                    <div>
-                                        <input type={"submit"} name={"send"} value={"Опубликовать"} onClick={() => {this.handleAddJoke(this.state.jokeTitle,
-                                                                                                                                       this.state.jokeTags,
-                                                                                                                                       this.state.jokeContent)}}/>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </button>
-            </Modal>
+            <AddModal/>
         ) : null;
-        
-        const addButton = this.state.user ? 
-                    <div>
-                        <img className={s.add_logo} src={plusIcon} alt="add" onClick={this.handleShowAdd}/>
-                    </div> : null
-        
+
+        const addButton = this.state.user ?
+            <div>
+                <img className={s.add_logo} src={plusIcon} alt="add" onClick={this.handleShowAdd}/>
+            </div> : null
+
 
         return (
             <header>
@@ -214,7 +158,7 @@ class Header extends React.Component {
                 {modal}
             </header>
         );
-    }
+    };
 }
 
 export default Header;
