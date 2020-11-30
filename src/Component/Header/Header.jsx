@@ -62,7 +62,7 @@ class Header extends React.Component {
         
         axios({
           method: 'post',
-          url: 'http://localhost:3001/jokes/addJoke',
+          url: 'http://back.site-smeshnoy.me:3001/jokes/addJoke',
           data: {name: jokeName, tags: jokeTags, content: jokeContent},
           maxRedirects: 1
         }).then(response => {
@@ -74,7 +74,7 @@ class Header extends React.Component {
         
         axios({
           method: 'post',
-          url: 'http://localhost:3001/login',
+          url: 'http://back.site-smeshnoy.me:3001/login',
           data: {username: username, password: password},
           withCredentials: true
         }).then(response => {
@@ -133,7 +133,7 @@ class Header extends React.Component {
                                                className={s.in}/>
                                     </div>
                                     <div>
-                                        <input type={"submit"} value={"Войти"} onClick={() => this.handleLogin(this.state.username, this.state.password)}/>
+                                        <button value={"Войти"} onClick={() => this.handleLogin(this.state.username, this.state.password)}/>
                                     </div>
                                 </div>
 
@@ -164,7 +164,7 @@ class Header extends React.Component {
                                         <textarea type={"text"} name={"content"} placeholder={"Анекдот"} className={`${add_s.inline} ${add_s.content}`}  onChange={ (event)=> {this.state.jokeContent = event.target.value}}/>
                                     </div>
                                     <div>
-                                        <input type={"submit"} name={"send"} value={"Опубликовать"} onClick={() => {this.handleAddJoke(this.state.jokeTitle,
+                                        <input type={"submit"}  value={"Опубликовать"} onClick={() => {this.handleAddJoke(this.state.jokeTitle,
                                                                                                                                        this.state.jokeTags,
                                                                                                                                        this.state.jokeContent)}}/>
                                     </div>
