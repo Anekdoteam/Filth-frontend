@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './Block.module.css';
 import ReactDOM from "react-dom";
-import logo from "../../../assets/dark.svg";
 import prof from "../../../assets/unauth_user_icon.svg";
 
 const modalRoot = document.getElementById('modal-root');
@@ -87,10 +86,6 @@ class Block extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        {/*<div className="modal_text">
-                            With a portal, we can render content into a different
-                            part of the DOM, as if it were any other React child.
-                        </div>*/}
                     </div>
                 </button>
             </Modal>

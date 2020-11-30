@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 import Block from "./Block";
 import axios from "axios";
 
@@ -27,7 +27,8 @@ class Jokes extends Component {
     return (
       <BrowserRouter>
         <div className={'content'}>
-          {this.state.apiResponse.jokes.map(joke => <Block title={joke.title} content={joke.content}/>)}
+          <Block title={"TITLE TITLE TITLE TITLE"} content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus condimentum leo arcu, nec mollis neque tristique ut. Cras vel odio nisi. Morbi et imperdiet nisl, a dapibus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In porttitor dictum metus, quis eleifend lorem tincidunt at. In ut dolor neque. Nam ac elit suscipit, suscipit est sed, efficitur nunc. Integer ipsum metus, tincidunt vel dignissim vitae, dignissim a risus. Curabitur in leo mollis, porttitor diam ac, malesuada risus."}/>
+          {/*{this.state.apiResponse.jokes.map(joke => <Block title={joke.title} content={joke.content}/>)}*/}
         </div>
       </BrowserRouter>
     );

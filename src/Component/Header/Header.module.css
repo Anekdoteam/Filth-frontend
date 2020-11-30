@@ -58,6 +58,7 @@ header {
     font-size: 20pt !important;
     border: none;
     margin: 5px 10px;
+    outline:none;
 }
 
 .search_div {

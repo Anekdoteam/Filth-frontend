@@ -1,16 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 import Header from "./Component/Header/Header";
-import Block from "./Component/Main/jokes/Block";
-import ReactDOM from "react-dom";
 import Jokes from "./Component/Main/jokes/Jokes"
-import Route from "react-router-dom/es/Route";
-
-
-const appRoot = document.getElementById('root');
-const modalRoot = document.getElementById('modal-root');
-
 
 /**
  * Main render jsx-component
@@ -60,28 +52,6 @@ const modalRoot = document.getElementById('modal-root');
 	}
 }*/
 
-class Modal extends React.Component {
-    constructor(props) {
-        super(props);
-        this.el = document.createElement('div');
-    }
-
-    componentDidMount() {
-        modalRoot.appendChild(this.el);
-    }
-
-    componentWillUnmount() {
-        modalRoot.removeChild(this.el);
-    }
-
-    render() {
-        return ReactDOM.createPortal(
-            this.props.children,
-            this.el,
-        );
-    }
-}
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -111,19 +81,6 @@ class App extends React.Component {
     }*/
 
     render() {
-        const modal = this.state.showModal ? (
-            <Modal>
-                <button onClick={this.handleHide} className={"fullBtn"}>
-
-                    <div className="modal">
-                        <div className="modal_text">
-                            With a portal, we can render content into a different
-                            part of the DOM, as if it were any other React child.
-                        </div>
-                    </div>
-                </button>
-            </Modal>
-        ) : null;
 
         return (
 
@@ -131,7 +88,7 @@ class App extends React.Component {
                 <div className={'content'}>
                     <Header/>
                     <div className={'main'}>
-                        <Route path='/memes' component={Jokes}/>
+                        <Route exact to='/memes' component={Jokes}/>
                     </div>
                 </div>
             </BrowserRouter>
