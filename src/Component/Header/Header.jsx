@@ -8,8 +8,10 @@ import {NavLink} from "react-router-dom";
 import Like from "../../assets/filth-like-icon.svg";
 import search from "../../assets/filth-search.svg";
 import axios from "axios";
+import add_s from './Add.module.css';
 import LoginModal from "./Modals/LoginModal";
 import AddModal from "./Modals/AddModal";
+import Modal from "../../Modal";
 
 /*const modalRoot = document.getElementById('modal-root');
 
@@ -114,10 +116,103 @@ class Header extends React.Component {
 
     render = () => {
         const modal = this.state.showModalLogin ? (
-            <LoginModal/>
+            <Modal>
+                <button>
+                    <div className={s.modal}>
+                        <div className={s.modal_text}>
+                            <form className={s.login}>
+                                <div className={s.head}>
+                                    Вход
+                                </div>
+                                <div className={s.main_form}>
+                                    <div>
+                                        {/*<label>Username</label>*/}
+                                        <input type={"text"} name={"username"} placeholder={"Логин"} onChange={ (event)=> {this.setState({username: event.target.value})}}
+                                               className={s.in}/>
+                                    </div>
+                                    <div>
+                                        {/*<label>Password</label>*/}
+                                        <input type={"password"} name={"password"} placeholder={"Пароль"} onChange={ (event)=> {this.setState({password: event.target.value})}}
+                                               className={s.in}/>
+                                    </div>
+                                    <div>
+                                        <input type={"submit"} value={"Войти"} onClick={() => this.handleLogin(this.state.username, this.state.password)}/>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </button>
+            </Modal>
         ) : this.state.showModalAdd ? (
             // TODO: this
-            <AddModal/>
+            <Modal>
+                <button>
+                    <div className={add_s.modal}>
+                        <div className={add_s.modal_text}>
+                            <form>
+                                <div className={add_s.head}>
+                                    Добавить анекдот
+                                </div>
+                                <div className={add_s.main_form}>
+                                    <div>
+                                        <input
+                                            type={"text"}
+                                            name={"title"}
+                                            placeholder={"Название"}
+                                            className={add_s.inline}
+                                            onChange={ (event)=>
+                                            {this.setState({jokeTags: event.target.value})}}/>
+                                    </div>
+                                    <div>
+                                        {/*TODO: tags should be requested from backend (/jokes/getTags/???), then displayed as choices, also "new" should be a choice*/}
+                                        <input type={"text"}
+                                               name={"tags"}
+                                               placeholder={"Теги"}
+                                               className={add_s.inline}
+                                               onChange={ (event)=>
+                                               {this.setState({jokeTags: event.target.value})}}/>
+                                        {/*<div>
+                                                <button/>
+                                                <div>
+                                                    <input/>
+                                                    <button>tag</button>
+                                                </div>
+                                            </div>*/}
+                                        {/*<select id={"jokes"}>
+                                                <optgroup label={"tags"}>
+                                                    TODO: get joke-tags to jokeArray
+                                                    {
+                                                        () => this.state.jokeTags.map(tag => <option value={tag}/>)
+                                                    }
+                                                    {() => <option id="new" value={"new"}/>}
+                                                    {this.#createNewTag}
+                                                </optgroup>
+                                            </select>*/}
+                                    </div>
+                                    <div>
+                                        <textarea
+                                            name={"content"}
+                                            placeholder={"Анекдот"}
+                                            className={`${add_s.inline} ${add_s.content}`}
+                                            onChange={ (event)=> {this.setState({jokeContent: event.target.value})}}/>
+                                    </div>
+                                    <div>
+                                        <input 
+                                            type={"submit"}
+                                            name={"send"}
+                                            value={"Опубликовать"}
+                                            onClick={() => {this.handleAddJoke(this.state.jokeTitle,
+                                            this.state.jokeTags,
+                                            this.state.jokeContent)}}/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </button>
+            </Modal>
         ) : null;
 
         const addButton = this.state.user ?
