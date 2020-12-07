@@ -33,6 +33,16 @@
     overflow: hidden;
 }
 
+.like_button {
+    width: 16px;
+    float: left;
+}
+
+.like_button:hover {
+    outline-style: solid;
+    outline-color: #FFFFFF;
+}
+
 .block p {
     text-align: justify;
     padding-right: 15px;

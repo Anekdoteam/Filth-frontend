@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Block.module.css';
 import ReactDOM from "react-dom";
 import prof from "../../../assets/unauth_user_icon.svg";
+import Like from "../../../assets/filth-like-icon.svg";
 
 const modalRoot = document.getElementById('modal-root');
 
@@ -102,6 +103,8 @@ class Block extends React.Component {
                         <p>
                             {this.props.content}
                         </p>
+                        {/*TODO: make this beautiful*/}
+                        <img className={s.like_button} src={Like} alt="like" onClick={this.handleLike}/>
                     </div>
                 </button>
                 {modal}

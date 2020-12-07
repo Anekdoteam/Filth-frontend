@@ -86,7 +86,6 @@ class Header extends React.Component {
             this.setState({apiResponse: response.data});
             this.setState({isLoggedIn: true});
             Cookies.set("isLoggedIn",true);
-            console.log("Logged in");
             // TODO: check success
           });
     };
