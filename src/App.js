@@ -70,16 +70,6 @@ class App extends React.Component {
         this.setState({showModal: false});
     }
 
-    /*callAPI() {
-        fetch("http://localhost:9000/testAPI")
-            .then(res => res.text())
-            .then(res => this.setState({apiResponse: res}));
-    }
-
-    componentWillMount() {
-        this.callAPI();
-    }*/
-
     render() {
 
         return (
@@ -92,12 +82,6 @@ class App extends React.Component {
                     </div>
                 </div>
             </BrowserRouter>
-
-            /*<div className="app">
-                This div has overflow: hidden.
-                <button onClick={this.handleShow}>Show modal</button>
-                {modal}
-            </div>*/
         );
     }
 }
