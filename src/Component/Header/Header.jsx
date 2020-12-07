@@ -13,6 +13,8 @@ import LoginModal from "./Modals/LoginModal";
 import AddModal from "./Modals/AddModal";
 import Modal from "../../Modal";
 
+import Cookies from 'js-cookie';
+
 /*const modalRoot = document.getElementById('modal-root');
 
 class Modal extends React.Component {
@@ -50,7 +52,7 @@ class Header extends React.Component {
             jokeContent: "",
             username: "",
             password: "",
-            user: document.cookie.sampleCookie,
+            isLoggedIn: Cookies.get('isLoggedIn'),
         };
         
         
@@ -82,6 +84,9 @@ class Header extends React.Component {
           withCredentials: true
         }).then(response => {
             this.setState({apiResponse: response.data});
+            this.setState({isLoggedIn: true});
+            Cookies.set("isLoggedIn",true);
+            console.log("Logged in");
             // TODO: check success
           });
     };
@@ -136,6 +141,7 @@ class Header extends React.Component {
                                                className={s.in}/>
                                     </div>
                                     <div>
+                                        {/*TODO: fix bug: enter key doesn't count as a click, but triggers submit -> refresh*/}
                                         <input type={"submit"} value={"Войти"} onClick={() => this.handleLogin(this.state.username, this.state.password)}/>
                                     </div>
                                 </div>
@@ -215,7 +221,7 @@ class Header extends React.Component {
             </Modal>
         ) : null;
 
-        const addButton = this.state.user ?
+        const addButton = this.state.isLoggedIn ?
             <div>
                 <img className={s.add_logo} src={plusIcon} alt="add" onClick={this.handleShowAdd}/>
             </div> : null
@@ -240,7 +246,7 @@ class Header extends React.Component {
                     <div>
                         <img className={s.like_button} src={Like} alt="like" onClick={null}/>
                     </div>
-                    {addButton}
+                        {addButton}
                     <div>
                         <img onClick={this.handleShowLogin}
                              src={prof}
