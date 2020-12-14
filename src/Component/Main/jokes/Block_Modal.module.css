@@ -1,0 +1,60 @@
+.tag_line {
+  display: inline;
+  float: left;
+  font-size: 18px;
+}
+
+.content, .header, .footer {
+  background: #1D1E1F;
+  margin: auto;
+  width: 60%;
+  color: #eee;
+  padding: 15px;
+}
+
+.dialog {
+}
+
+.content {
+  height: fit-content;
+}
+
+.header {
+  color: #B4025B;
+  margin-top: 15vh;
+  padding-top: 30px;
+  font-weight: bold;
+  font-size: 1.5em;
+  border-top-left-radius: calc(2.3rem - 2px);
+  border-top-right-radius: calc(2.3rem - 2px);
+}
+
+.profile_logo {
+  width: 65px;
+}
+
+.footer {
+  border-bottom-left-radius: calc(2.3rem - 2px);
+  border-bottom-right-radius: calc(2.3rem - 2px);
+}
+
+.hr {
+  border: #B4025B 1px solid;
+}
+
+.user_info {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+}
+
+.user_name {
+  margin: auto 0;
+}
+
+.author {
+  display: grid;
+}
+
+.text {
+  text-indent: 2vw;
+}

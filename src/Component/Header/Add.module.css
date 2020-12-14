@@ -4,9 +4,13 @@
     border-radius: 10px;
     border: 0 solid;
     box-shadow: 0 0 10px #000;
-    margin: 15px 0;
+    margin: 2vh auto;
     padding: 10px 5px 10px 25px;
-    width: 80%;
+    width: 95%;
+}
+
+.button {
+    width: 100%;
 }
 
 .content {
@@ -22,6 +26,7 @@
     color: rgb(61, 61, 61);
 }
 
+/*
 .modal {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -42,15 +47,35 @@
     box-shadow: 0 0 20px #000;
     overflow: hidden;
 }
+*/
 
 .head {
     text-align: left;
-    margin: 6% 0 0 10%;
+    margin: 3% 0 0 6%;
     color: #B4025B;
     font-size: 30px;
     font-weight: bold;
 }
+.body, .header, .footer {
+    background: #1D1E1F;
+    margin: auto;
+    width: 50%;
+    color: #eee;
+    padding: 15px;
+    height: fit-content;
+}
 
-.main_form {
-    margin: 5% auto;
+.header {
+    color: #B4025B;
+    margin-top: 15vh;
+    padding-top: 30px;
+    font-weight: bold;
+    font-size: 1.5em;
+    border-top-left-radius: calc(2.3rem - 2px);
+    border-top-right-radius: calc(2.3rem - 2px);
+}
+
+.footer {
+    border-bottom-left-radius: calc(2.3rem - 2px);
+    border-bottom-right-radius: calc(2.3rem - 2px);
 }

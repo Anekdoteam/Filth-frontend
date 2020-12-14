@@ -27,3 +27,7 @@ code {
     position: relative;
     z-index: 10000;
 }
+
+button .close {
+    visibility: hidden;
+}

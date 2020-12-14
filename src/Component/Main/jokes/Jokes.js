@@ -12,16 +12,20 @@ class Jokes extends Component {
     this.state = {apiResponse: {success: false, jokes: []}};
   }
 
+/*
   getJokes(offset, limit, sort) {
     axios.get('http://localhost:3001/jokes/getJokes/' + offset + '-' + limit + '&' + sort)
       .then(response => {
         this.setState({apiResponse: response.data});
       });
   }
+*/
 
+/*
   componentWillMount() {
     this.getJokes(0, PAGE_SIZE, 1);
   }
+*/
 
   render() {
     return (

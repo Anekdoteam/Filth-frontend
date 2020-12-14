@@ -106,7 +106,7 @@ header {
 }
 
 .main_form {
-    margin: 5% auto;
+    margin: 0 auto;
 }
 
 .in {
@@ -131,7 +131,6 @@ input[type=text]::placeholder, input[type=password]::placeholder {
 input[type=submit] {
     letter-spacing: 2px;
     margin-top: 7vh;
-    width: 84.5%;
     /*background-color: #B4025B;*/
     background-color: #C20262;
     color: #CCC;
@@ -142,3 +141,45 @@ input[type=submit] {
     font-size: 17px;
 }
 
+.head {
+    text-align: left;
+    margin: 3% auto;
+    color: #B4025B;
+    font-size: 30px;
+    font-weight: bold;
+}
+.content, .header, .footer {
+    background: #1D1E1F;
+    margin: auto;
+    width: 50%;
+    color: #eee;
+    padding: 15px;
+    height: fit-content;
+}
+
+.header {
+    color: #B4025B;
+    margin-top: 15vh;
+    padding-top: 30px;
+    font-weight: bold;
+    font-size: 1.5em;
+    border-top-left-radius: calc(2.3rem - 2px);
+    border-top-right-radius: calc(2.3rem - 2px);
+}
+
+.footer {
+    border-bottom-left-radius: calc(2.3rem - 2px);
+    border-bottom-right-radius: calc(2.3rem - 2px);
+}
+
+.footer_btn {
+    opacity: 0;
+}
+
+.head_title {
+    text-align: left;
+    margin: 3% 0 0 6%;
+    color: #B4025B;
+    font-size: 30px;
+    font-weight: bold;
+}

@@ -9,21 +9,26 @@ const NavBar = () => {
             <div className={s.navbar}>
                 <div className={s.left}>
                     <div className={s.item}>
-                        <NavLink to="/memes" activeClassName={s.active}>Мемы</NavLink>
+                        <NavLink to="/memes"
+                                 activeClassName={s.active}>Мемы</NavLink>
                     </div>
                     <div className={s.item}>
-                        <NavLink to="/jokes" activeClassName={s.active}>Анекдоты</NavLink>
+                        <NavLink to="/jokes"
+                                 activeClassName={s.active}>Анекдоты</NavLink>
                     </div>
                     <div className={s.item}>
-                        <NavLink to="/past" activeClassName={s.active}>Паста</NavLink>
+                        <NavLink to="/past"
+                                 activeClassName={s.active}>Паста</NavLink>
                     </div>
                     <div className={s.item}>
-                        <NavLink to="/story" activeClassName={s.active}>Истории</NavLink>
+                        <NavLink to="/story"
+                                 activeClassName={s.active}>Истории</NavLink>
                     </div>
                 </div>
                 <div className={s.rand}>
                     <div className={s.item}>
-                        <NavLink to="/random" activeClassName={s.active}>Рандом</NavLink>
+                        <NavLink to="/random"
+                                 activeClassName={s.active}>Рандом</NavLink>
                     </div>
                 </div>
             </div>
