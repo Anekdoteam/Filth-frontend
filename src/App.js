@@ -42,7 +42,10 @@ class App extends React.Component {
                     </div>
                 </div>
             </BrowserRouter>
+// <<<<<<< HEAD
 
+// =======
+// >>>>>>> ad9a8be56bba6c95b3ab965571e6b1de0cce75f8
         );
     }
 }
