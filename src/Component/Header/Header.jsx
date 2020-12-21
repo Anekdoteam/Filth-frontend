@@ -21,23 +21,26 @@ class Header extends React.Component {
     this.state = {
       showModalLogin: false,
       showModalAdd: false,
+      showModalRegistration: false,
       apiResponse: {success: false, error: undefined},
       jokeTitle: "",
       jokeTags: [],
       jokeContent: "",
       username: "",
       password: "",
-      isLoggedIn: true/*Cookies.get('isLoggedIn')*/,
+      isLoggedIn: false/*Cookies.get('isLoggedIn')*/,
     };
 
 
+    this.handleShowRegistration = this.handleShowRegistration.bind(this);
+    this.handleHideRegistration = this.handleHideRegistration.bind(this);
     this.handleShowLogin = this.handleShowLogin.bind(this);
     this.handleHideLogin = this.handleHideLogin.bind(this);
     this.handleShowAdd = this.handleShowAdd.bind(this);
     this.handleHideAdd = this.handleHideAdd.bind(this);
   }
 
-  addJoke = (jokeName, jokeTags, jokeContent) => {
+  /*addJoke = (jokeName, jokeTags, jokeContent) => {
 
     axios({
       method: 'post',
@@ -61,7 +64,7 @@ class Header extends React.Component {
       Cookies.set("isLoggedIn",true);
       // TODO: check success
     });
-  };
+  };*/
 
 handleShowLogin = () => {
   this.setState({showModalLogin: true});
@@ -79,15 +82,23 @@ handleHideAdd = () => {
   this.setState({showModalAdd: false});
 };
 
+handleShowRegistration = () => {
+  this.setState({showModalRegistration: true});
+};
+
+handleHideRegistration = () => {
+  this.setState({showModalRegistration: false});
+};
+
 handleAddJoke = (name, tags, content) => {
-  this.addJoke(name, tags, content);
+  // this.addJoke(name, tags, content);
   //window.location = '/memes';
   /*Todo: success/failure message (flash?)*/
   /*Todo: probably should redirect to different pages when categories are in place*/
 };
 
 handleLogin = (username, password) => {
-  this.login(username, password);
+  // this.login(username, password);
   // window.location = '/memes';
 };
 
@@ -220,9 +231,12 @@ render = () => {
                 <div>
                   <input type={"submit"} value={"Войти"}
                          onClick={() => this.handleLogin(this.state.username, this.state.password)}/>
+                  {this.state.isLoggedIn ? null :
+                    <div>
+                      <input type={'button'} value={'Зарегистрироваться'} onClick={this.handleShowRegistration}/>
+                    </div>}
                 </div>
               </div>
-
             </form>
           </Modal.Body>
           <Modal.Footer className={s.footer}>
@@ -230,6 +244,61 @@ render = () => {
               className={s.footer_btn}
               variant="primary"
               onClick={this.handleHideLogin}/>
+          </Modal.Footer>
+        </Modal.Dialog>
+      </Modal>
+      <Modal show={this.state.showModalRegistration} onHide={this.handleHideRegistration}>
+        {this.handleHideLogin}
+        <Modal.Dialog>
+          <Modal.Header className={s.header}>
+            <div className={s.head_title}>
+              Регистрация
+            </div>
+          </Modal.Header>
+          <Modal.Body className={s.content}>
+            <form className={s.login}>
+              <div className={s.main_form}>
+                <div>
+                  <input
+                    type={"text"}
+                    name={"username"}
+                    placeholder={"Логин"}
+                    onChange={(event) => {
+                      this.setState({username: event.target.value})
+                    }}
+                    className={s.in}/>
+                </div>
+                <div>
+                  <input
+                    type={"password"}
+                    name={"password"}
+                    placeholder={"Пароль"}
+                    onChange={(event) => {
+                      this.setState({password: event.target.value})
+                    }}
+                    className={s.in}/>
+                </div>
+                <div>
+                  <input
+                    type={"password"}
+                    name={"password_same"}
+                    placeholder={"Повторите пароль"}
+                    onChange={(event) => {
+                      this.setState({password: event.target.value})
+                    }}
+                    className={s.in}/>
+                </div>
+                <div>
+                  <input type={'button'} value={'Зарегистрироваться'} onClick={this.handleLogin(this.state.username, this.state.password)}/>
+                </div>
+              </div>
+            </form>
+          </Modal.Body>
+          <Modal.Footer className={s.footer}>
+            <Button
+              className={s.footer_btn}
+              variant="primary"
+              onClick={this.handleHideRegistration}/>
           </Modal.Footer>
         </Modal.Dialog>
       </Modal>
