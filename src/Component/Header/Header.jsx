@@ -27,7 +27,7 @@ class Header extends React.Component {
       jokeContent: "",
       username: "",
       password: "",
-      isLoggedIn: false/*Cookies.get('isLoggedIn')*/,
+      isLoggedIn: Cookies.get('isLoggedIn'),
     };
 
 
@@ -57,8 +57,8 @@ class Header extends React.Component {
       withCredentials: true
     }).then(response => {
       this.setState({apiResponse: response.data});
-      this.setState({isLoggedIn: true});
       Cookies.set("isLoggedIn",true);
+      this.setState({isLoggedIn: true});
       // TODO: check success
     });
   };
