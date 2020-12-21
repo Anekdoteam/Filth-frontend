@@ -128,7 +128,7 @@ input[type=text]::placeholder, input[type=password]::placeholder {
     color: #3D3D3D;
 }
 
-input[type=submit] {
+input[type=submit], input[type=button]{
     letter-spacing: 2px;
     margin-top: 7vh;
     /*background-color: #B4025B;*/
