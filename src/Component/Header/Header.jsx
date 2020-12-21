@@ -27,7 +27,7 @@ class Header extends React.Component {
       jokeContent: "",
       username: "",
       password: "",
-      isLoggedIn: true/*Cookies.get('isLoggedIn')*/,
+      isLoggedIn: false/*Cookies.get('isLoggedIn')*/,
     };
 
 
@@ -135,7 +135,7 @@ render = () => {
                       placeholder={"Название"}
                       className={add_s.inline}
                       onChange={(event) => {
-                        this.setState({jokeTags: event.target.value})
+                        this.setState({jokeTitle: event.target.value})
                       }}/>
                   </div>
                   <div>
