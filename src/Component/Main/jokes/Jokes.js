@@ -3,7 +3,7 @@ import {BrowserRouter} from "react-router-dom";
 import Block from "./Block";
 import axios from "axios";
 
-const PAGE_SIZE = 100; // const for now, probably changable by user or something
+const PAGE_SIZE = 1000; // const for now, probably changable by user or something
 const override_auth = true; // debug usage only
 
 class Jokes extends Component {

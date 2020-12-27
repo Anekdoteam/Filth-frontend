@@ -13,7 +13,8 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import LoginForm from "./Forms/LoginForm"
 import RegisterForm from "./Forms/RegisterForm"
-
+import AddForm from "./Forms/AddForm"
+// TODO: cleanup imports
 
 import Cookies from 'js-cookie';
 
@@ -40,18 +41,6 @@ class Header extends React.Component {
     this.handleShowAdd = this.handleShowAdd.bind(this);
     this.handleHideAdd = this.handleHideAdd.bind(this);
   }
-
-  addJoke = (jokeName, jokeTags, jokeContent) => {
-
-    axios({
-      method: 'post',
-      url: 'http://back.site-smeshnoy.me:3001/jokes/addJoke',
-      data: {name: jokeName, tags: jokeTags, content: jokeContent},
-      maxRedirects: 1
-    }).then(response => {
-      this.setState({apiResponse: response.data});
-    });
-  };
 
 
     handleShowLogin = () => {
@@ -120,51 +109,7 @@ render = () => {
               </div>
             </Modal.Header>
             <Modal.Body className={add_s.body}>
-              <form>
-                <div>
-                  <div>
-                    <input
-                      type={"text"}
-                      name={"title"}
-                      placeholder={"Название"}
-                      className={add_s.inline}
-                      onChange={(event) => {
-                        this.setState({jokeTitle: event.target.value})
-                      }}/>
-                  </div>
-                  <div>
-                    {/*TODO: tags should be requested from backend (/jokes/getTags/???), then displayed as choices, also "new" should be a choice*/}
-                    <input type={"text"}
-                           name={"tags"}
-                           placeholder={"Теги"}
-                           className={add_s.inline}
-                           onChange={(event) => {
-                             this.setState({jokeTags: event.target.value})
-                           }}/>
-                  </div>
-                  <div>
-                      <textarea
-                        name={"content"}
-                        placeholder={"Анекдот"}
-                        className={`${add_s.inline} ${add_s.content}`}
-                        onChange={(event) => {
-                          this.setState({jokeContent: event.target.value})
-                        }}/>
-                  </div>
-                  <div>
-                    <input
-                      type={"submit"}
-                      name={"send"}
-                      value={"Опубликовать"}
-                      className={add_s.button}
-                      onClick={() => {
-                        this.handleAddJoke(this.state.jokeTitle,
-                          this.state.jokeTags,
-                          this.state.jokeContent)
-                      }}/>
-                  </div>
-                </div>
-              </form>
+              <AddForm/>
             </Modal.Body>
             <Modal.Footer className={add_s.footer}>
               <Button variant="primary" onClick={this.handleHideAdd}/>
@@ -206,7 +151,6 @@ render = () => {
       </Modal>
 
       <Modal show={this.state.showModalRegistration} onHide={this.handleHideRegistration}>
-        {this.handleHideLogin}
         <Modal.Dialog>
           <Modal.Header className={s.header}>
             <div className={s.head_title}>
