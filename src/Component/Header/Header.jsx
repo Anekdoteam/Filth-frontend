@@ -26,10 +26,6 @@ class Header extends React.Component {
       showModalLogin: false,
       showModalAdd: false,
       showModalRegistration: false,
-      apiResponse: {success: false, error: undefined},
-      jokeTitle: "",
-      jokeTags: [],
-      jokeContent: "",
       isLoggedIn: Cookies.get('isLoggedIn'),
     };
 
@@ -66,14 +62,6 @@ class Header extends React.Component {
     handleHideRegistration = () => {
       this.setState({showModalRegistration: false});
     };
-
-    handleAddJoke = (name, tags, content) => {
-      this.addJoke(name, tags, content);
-      window.location = '/memes';
-      /*Todo: success/failure message (flash?)*/
-      /*Todo: probably should redirect to different pages when categories are in place*/
-    };
-
 
 render = () => {
 
@@ -121,11 +109,7 @@ render = () => {
           </Modal.Dialog>
         </Modal>
         {addButton}
-        
-        {/* TODO: if logged in...*/}
-        <div>
-          {profileButton}
-        </div>
+        {profileButton}
       </div>
       <NavBar/>
       
