@@ -40,7 +40,7 @@ class Header extends React.Component {
     this.handleHideAdd = this.handleHideAdd.bind(this);
   }
 
-  /*addJoke = (jokeName, jokeTags, jokeContent) => {
+  addJoke = (jokeName, jokeTags, jokeContent) => {
 
     axios({
       method: 'post',
@@ -64,44 +64,44 @@ class Header extends React.Component {
       this.setState({isLoggedIn: true});
       // TODO: check success
     });
-  };*/
+  };
 
-handleShowLogin = () => {
-  this.setState({showModalLogin: true});
-};
+    handleShowLogin = () => {
+      this.setState({showModalLogin: true});
+    };
 
-handleHideLogin = () => {
-  this.setState({showModalLogin: false});
-};
+    handleHideLogin = () => {
+      this.setState({showModalLogin: false});
+    };
 
-handleShowAdd = () => {
-  this.setState({showModalAdd: true});
-};
+    handleShowAdd = () => {
+      this.setState({showModalAdd: true});
+    };
 
-handleHideAdd = () => {
-  this.setState({showModalAdd: false});
-};
+    handleHideAdd = () => {
+      this.setState({showModalAdd: false});
+    };
 
-handleShowRegistration = () => {
-  this.setState({showModalRegistration: true});
-};
+    handleShowRegistration = () => {
+      this.setState({showModalRegistration: true});
+    };
 
-handleHideRegistration = () => {
-  this.setState({showModalRegistration: false});
-};
+    handleHideRegistration = () => {
+      this.setState({showModalRegistration: false});
+    };
 
-handleAddJoke = (name, tags, content) => {
-  // this.addJoke(name, tags, content);
-  //window.location = '/memes';
-  /*Todo: success/failure message (flash?)*/
-  /*Todo: probably should redirect to different pages when categories are in place*/
-};
+    handleAddJoke = (name, tags, content) => {
+      this.addJoke(name, tags, content);
+      window.location = '/memes';
+      /*Todo: success/failure message (flash?)*/
+      /*Todo: probably should redirect to different pages when categories are in place*/
+    };
 
-handleLogin = (username, password) => {
-  console.log('[!!!!!!!!!!!]')
-  // this.login(username, password);
-  // window.location = '/memes';
-};
+    handleLogin = (username, password) => {
+      this.login(username, password);
+      window.location = '/memes';
+      console.log('login')
+    };
 
 
 render = () => {
@@ -290,7 +290,7 @@ render = () => {
                     className={s.in}/>
                 </div>
                 <div>
-                  <input type={'button'} value={'Зарегистрироваться'} onClick={this.handleLogin(this.state.username, this.state.password)}/>
+                  <input type={'button'} value={'Зарегистрироваться'} onClick={() => this.handleLogin(this.state.username, this.state.password)}/>
                 </div>
               </div>
             </form>
