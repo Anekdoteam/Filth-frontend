@@ -16,6 +16,7 @@ import RegisterForm from "./Forms/RegisterForm"
 import AddForm from "./Forms/AddForm"
 // TODO: cleanup imports
 
+import axios from "axios";
 import Cookies from 'js-cookie';
 
 class Header extends React.Component {
@@ -62,6 +63,26 @@ class Header extends React.Component {
     handleHideRegistration = () => {
       this.setState({showModalRegistration: false});
     };
+    
+    logout = (username, email, password) => {
+    axios({
+      method: 'get',
+      url: 'http://back.site-smeshnoy.me:3001/login/logout',
+      withCredentials: true,
+      maxRedirects: 1,
+    }).then(response => {
+      alert("Success: " + response.data.success
+      + '\nError: ' + response.data.error
+      + '\nMessage: ' + response.data.message)
+      if(response.data.success==true){
+        Cookies.remove("isLoggedIn");
+        Cookies.remove("sampleCookie");
+        Cookies.remove("sampleCookie.sig");
+      }
+      window.location = "/memes";
+      // TODO: check success and give a message (flash?); progress bar or something?
+    });
+  };
 
 render = () => {
 
@@ -70,7 +91,10 @@ render = () => {
       <img className={s.add_logo} src={plusIcon} alt="add" onClick={this.handleShowAdd}/>
     </div> : null
     
-  const profileButton = this.state.isLoggedIn ? <img onClick={() => alert('Знающие люди говорят, что здесь будет профиль. У всех будет информация, кнопка логаута и все остальное. Надо только не бухтеть и не раскачивать лодку.')} 
+  const profileButton = this.state.isLoggedIn ? <img onClick={() => {
+                                                                    alert('Знающие люди говорят, что здесь будет профиль. У всех будет информация, кнопка логаута и все остальное. Надо только не бухтеть и не раскачивать лодку. А сейчас - тут логаут.');
+                                                                    this.logout();
+                                                                    }} 
                                                 src={profAuth} className={s.profile_logo} alt='profile'/> :
                                                 <img onClick={this.handleShowLogin} src={prof} className={s.profile_logo} alt='profile'/>
 
