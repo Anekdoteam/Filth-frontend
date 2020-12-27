@@ -98,6 +98,7 @@ handleAddJoke = (name, tags, content) => {
 };
 
 handleLogin = (username, password) => {
+  console.log('[!!!!!!!!!!!]')
   // this.login(username, password);
   // window.location = '/memes';
 };
