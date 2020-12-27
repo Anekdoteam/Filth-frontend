@@ -32,7 +32,10 @@ export default class RegisterForm extends React.Component {
       withCredentials: true
     }).then(response => {
       //Cookies.set("isLoggedIn",true);
-      //window.location = "/memes";
+      alert("Success: " + response.data.success
+      + '\nError: ' + response.data.error
+      + '\nMessage: ' + response.data.message)
+      window.location = "/memes";
       // TODO: check success and give a message (flash?); progress bar or something?
     });
   };
