@@ -29,7 +29,7 @@ export default class LoginForm extends React.Component {
     }).then(response => {
       Cookies.set("isLoggedIn",true);
       window.location = "/memes";
-      // TODO: check success; progress bar or something?
+      // TODO: check success and give a message (flash?); progress bar or something?
     });
   };
   
@@ -69,10 +69,6 @@ export default class LoginForm extends React.Component {
                 </div>
                 <div>
                   <input type={"submit"} value={"Войти"}/>
-                  {this.state.isLoggedIn ? null :
-                    <div>
-                      <input type={'button'} value={'Зарегистрироваться'} onClick={this.handleShowRegistration}/>
-                  </div>}
                 </div>
           </div>
         </form>
