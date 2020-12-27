@@ -11,7 +11,6 @@ import add_s from './Add.module.css';
 import s from './Header.module.css';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import LoginForm from "./Forms/LoginForm"
 
 import Cookies from 'js-cookie';
 
@@ -27,6 +26,8 @@ class Header extends React.Component {
       jokeTitle: "",
       jokeTags: [],
       jokeContent: "",
+      username: "",
+      password: "",
       isLoggedIn: Cookies.get('isLoggedIn'),
     };
 
@@ -51,19 +52,20 @@ class Header extends React.Component {
     });
   };
 
-  /*login = (username, password) => {
+  login = (username, password) => {
     axios({
       method: 'post',
       url: 'http://back.site-smeshnoy.me:3001/login',
       data: {username: username, password: password},
       withCredentials: true
     }).then(response => {
+      console.log('Logging in finished');
       this.setState({apiResponse: response.data});
       Cookies.set("isLoggedIn",true);
       this.setState({isLoggedIn: true});
       // TODO: check success
     });
-  };*/
+  };
 
     handleShowLogin = () => {
       this.setState({showModalLogin: true});
@@ -91,9 +93,12 @@ class Header extends React.Component {
 
     handleAddJoke = (name, tags, content) => {
       this.addJoke(name, tags, content);
-      window.location = '/memes';
       /*Todo: success/failure message (flash?)*/
       /*Todo: probably should redirect to different pages when categories are in place*/
+    };
+
+    handleLogin = (username, password) => {
+      this.login(username, password);
     };
 
 
@@ -192,7 +197,6 @@ render = () => {
         </div>
       </div>
       <NavBar/>
-      
       <Modal show={this.state.showModalLogin} onHide={this.handleHideLogin}>
         <Modal.Dialog>
           <Modal.Header className={s.header}>
@@ -201,7 +205,38 @@ render = () => {
             </div>
           </Modal.Header>
           <Modal.Body className={s.content}>
-            <LoginForm/>
+            <form className={s.login}>
+              <div className={s.main_form}>
+                <div>
+                  <input
+                    type={"text"}
+                    name={"username"}
+                    placeholder={"Логин"}
+                    onChange={(event) => {
+                      this.setState({username: event.target.value})
+                    }}
+                    className={s.in}/>
+                </div>
+                <div>
+                  <input
+                    type={"password"}
+                    name={"password"}
+                    placeholder={"Пароль"}
+                    onChange={(event) => {
+                      this.setState({password: event.target.value})
+                    }}
+                    className={s.in}/>
+                </div>
+                <div>
+                  <input type={"submit"} value={"Войти"}
+                         onClick={() => this.handleLogin(this.state.username, this.state.password)}/>
+                  {this.state.isLoggedIn ? null :
+                    <div>
+                      <input type={'button'} value={'Зарегистрироваться'} onClick={this.handleShowRegistration}/>
+                    </div>}
+                </div>
+              </div>
+            </form>
           </Modal.Body>
           <Modal.Footer className={s.footer}>
             <Button
@@ -211,7 +246,6 @@ render = () => {
           </Modal.Footer>
         </Modal.Dialog>
       </Modal>
-
       <Modal show={this.state.showModalRegistration} onHide={this.handleHideRegistration}>
         {this.handleHideLogin}
         <Modal.Dialog>

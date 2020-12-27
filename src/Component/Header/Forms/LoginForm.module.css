@@ -1,0 +1,41 @@
+LoginForm{
+}
+
+.main_form {
+    margin: 0 auto;
+}
+
+.in {
+    background-color: #1D1E1F;
+    border-radius: 10px;
+    border: 0px solid;
+    box-shadow: 0 0 10px #000;
+    margin: 7px 0;
+    padding: 10px 5px 10px 25px;
+    width: 80%;
+}
+
+input[type=text], input[type=password] {
+    color: #eee;
+    font-size: 16px;
+}
+
+input[type=text]::placeholder, input[type=password]::placeholder {
+    color: #3D3D3D;
+}
+
+input[type=submit], input[type=button]{
+    letter-spacing: 2px;
+    margin-top: 7vh;
+    /*background-color: #B4025B;*/
+    background-color: #C20262;
+    color: #CCC;
+    padding: 1.5vh;
+    border-radius: 10px;
+    border: 0 solid;
+    box-shadow: 0 0 20px #000;
+    font-size: 17px;
+}
+
+.login {
+}
