@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import NavBar from "./NavBar/NavBar";
 import {NavLink} from "react-router-dom";
 import prof from '../../assets/unauth_user_icon.svg';
+import profAuth from '../../assets/auth_user_icon.svg';
 import logo from '../../assets/dark.svg';
 import plusIcon from '../../assets/plus_icon.svg';
 import Like from "../../assets/filth-like-icon.svg";
 import search from "../../assets/filth-search.svg";
-import axios from "axios";
 import add_s from './Add.module.css';
 import s from './Header.module.css';
 import Modal from "react-bootstrap/Modal";
@@ -81,6 +81,10 @@ render = () => {
     <div>
       <img className={s.add_logo} src={plusIcon} alt="add" onClick={this.handleShowAdd}/>
     </div> : null
+    
+  const profileButton = this.state.isLoggedIn ? <img onClick={() => alert('Знающие люди говорят, что здесь будет профиль. У всех будет информация, кнопка логаута и все остальное. Надо только не бухтеть и не раскачивать лодку.')} 
+                                                src={profAuth} className={s.profile_logo} alt='profile'/> :
+                                                <img onClick={this.handleShowLogin} src={prof} className={s.profile_logo} alt='profile'/>
 
   return (
     <header>
@@ -117,12 +121,10 @@ render = () => {
           </Modal.Dialog>
         </Modal>
         {addButton}
+        
+        {/* TODO: if logged in...*/}
         <div>
-          <img onClick={this.handleShowLogin}
-               src={prof}
-               className={s.profile_logo}
-               alt='profile'
-          />
+          {profileButton}
         </div>
       </div>
       <NavBar/>
