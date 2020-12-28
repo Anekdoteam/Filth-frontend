@@ -1,8 +1,13 @@
-LoginForm{
+.main_form {
+    padding: 0 5rem;
+    display: grid;
+    grid-template-rows: 4rem 4rem 1rem 1rem;
+    margin: 0 auto;
+    height: 35vh;
 }
 
-.main_form {
-    margin: 0 auto;
+.main_form_item {
+
 }
 
 .in {
@@ -11,13 +16,14 @@ LoginForm{
     border: 0px solid;
     box-shadow: 0 0 10px #000;
     margin: 7px 0;
-    padding: 10px 5px 10px 25px;
+    padding: 10px 0px 10px 5px;
     width: 80%;
 }
 
 input[type=text], input[type=password] {
     color: #eee;
     font-size: 16px;
+    width: 100%;
 }
 
 input[type=text]::placeholder, input[type=password]::placeholder {
@@ -26,16 +32,28 @@ input[type=text]::placeholder, input[type=password]::placeholder {
 
 input[type=submit], input[type=button]{
     letter-spacing: 2px;
-    margin-top: 7vh;
+    width: 101%;
+    margin-top: 4rem;
     /*background-color: #B4025B;*/
     background-color: #C20262;
     color: #CCC;
-    padding: 1.5vh;
     border-radius: 10px;
     border: 0 solid;
     box-shadow: 0 0 20px #000;
     font-size: 17px;
+    padding: 10px 0px 10px 5px;
 }
 
-.login {
+.registration {
+    color: #B4025B;
+    text-decoration: underline;
+    background-color: transparent;
+    outline: none;
+    padding-left: 2rem;
+    border: none;
+}
+
+.reg_row {
+    margin-top: -7rem;
+    padding: 0 5rem;
 }

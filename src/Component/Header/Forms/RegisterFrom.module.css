@@ -1,0 +1,58 @@
+.main_form {
+  padding: 0 5rem;
+  display: grid;
+  grid-template-rows: 4rem 4rem 4rem 4rem 1rem;
+  margin: 0 auto;
+  height: 40vh;
+}
+
+.main_form_item {
+
+}
+
+.in {
+  background-color: #1D1E1F;
+  border-radius: 10px;
+  border: 0px solid;
+  box-shadow: 0 0 10px #000;
+  margin: 7px 0;
+  padding: 10px 0px 10px 5px;
+  width: 80%;
+}
+
+input[type=text], input[type=password] {
+  color: #eee;
+  font-size: 16px;
+  width: 100%;
+}
+
+input[type=text]::placeholder, input[type=password]::placeholder {
+  color: #3D3D3D;
+}
+
+input[type=submit], input[type=button]{
+  letter-spacing: 2px;
+  width: 101%;
+  /*background-color: #B4025B;*/
+  background-color: #C20262;
+  color: #CCC;
+  border-radius: 10px;
+  border: 0 solid;
+  box-shadow: 0 0 20px #000;
+  font-size: 17px;
+  padding: 10px 0px 10px 5px;
+}
+
+.registration {
+  color: #B4025B;
+  text-decoration: underline;
+  background-color: transparent;
+  outline: none;
+  padding-left: 2rem;
+  border: none;
+}
+
+.reg_row {
+  margin-top: -6rem;
+  padding: 0 5rem;
+}

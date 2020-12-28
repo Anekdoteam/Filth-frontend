@@ -124,14 +124,13 @@ input[type=text], input[type=password] {
     font-size: 16px;
 }
 
-input[type=text]::placeholder, input[type=password]::placeholder {
+/*input[type=text]::placeholder, input[type=password]::placeholder {
     color: #3D3D3D;
 }
 
 input[type=submit], input[type=button]{
     letter-spacing: 2px;
-    margin-top: 7vh;
-    /*background-color: #B4025B;*/
+    !*background-color: #B4025B;*!
     background-color: #C20262;
     color: #CCC;
     padding: 1.5vh;
@@ -139,7 +138,7 @@ input[type=submit], input[type=button]{
     border: 0 solid;
     box-shadow: 0 0 20px #000;
     font-size: 17px;
-}
+}*/
 
 .head {
     text-align: left;
@@ -177,6 +176,7 @@ input[type=submit], input[type=button]{
 }
 
 .head_title {
+    padding: 0 2rem;
     text-align: left;
     margin: 3% 0 0 6%;
     color: #B4025B;
